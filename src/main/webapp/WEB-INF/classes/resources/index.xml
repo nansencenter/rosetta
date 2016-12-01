@@ -21,6 +21,10 @@
         <type>platformMetadataTrajectoryItem</type>
     </resource>
     <resource>
+        <fileName>platformMetadataProfile.xml</fileName>
+        <type>platformMetadataProfileItem</type>
+    </resource>
+    <resource>
         <fileName>globalMetadata.xml</fileName>
         <type>globalMetadataItem</type>
     </resource>

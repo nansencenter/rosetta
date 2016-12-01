@@ -25,4 +25,9 @@
         <img>resources/img/platforms/aircraft.jpeg</img>
         <type>trajectory</type>
     </platform>
+   <platform>
+      <name>Single CTD/XBT cast</name>
+      <img>resources/img/platforms/ctd.jpeg</img>
+      <type>profile</type>
+   </platform>
 </platforms>

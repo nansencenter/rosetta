@@ -385,7 +385,7 @@ public abstract class NetcdfFileManager {
             Iterator<String> coordVarNameIterator = getCoordVars().get(coordType).iterator();
             while (coordVarNameIterator.hasNext()) {
                 key = coordVarNameIterator.next();
-                ncFileWriter = createNcfVariable(ncFileWriter, key, parsedDataFile);
+                ncFileWriter = createNcfVariable(ncFileWriter, key, parsedDataFile, coordType);
             }
         }
         return ncFileWriter;
@@ -419,7 +419,6 @@ public abstract class NetcdfFileManager {
             nameCounts.put(varName, newCount);
             varName = varName + "_" + newCount.toString();
         }
-        allVarNames.add(varName);
         HashMap variableMetadata = getVariableMetadataMap().get(sessionStorageKey + "Metadata");
         Object coordVarTypeOb = variableMetadata.get("_coordinateVariableType");
         String coordVarType = "";
@@ -434,9 +433,14 @@ public abstract class NetcdfFileManager {
         if (getCoordVars().containsKey(coordVarType)) {
             if (getCoordVars().get(coordVarType).contains(sessionStorageKey)) {
                 // FIXME: efficient line
-                name = name;
+                name = coordVarType;
                 shape = coordVarType;
             }
+        }
+        if (allVarNames.contains(name)){
+            // TODO - handle?
+        } else {
+            allVarNames.add(name);
         }
 
 
@@ -513,6 +517,8 @@ public abstract class NetcdfFileManager {
         if (coordType != null) {
             if (getBuildTimeTriggers().contains(coordType)) {
                 ncFileWriter.addVariableAttribute(theVar, new Attribute("timeRelatedVariable", "true"));
+            } else if (coordType.equals("alt")) {
+                ncFileWriter.addVariableAttribute(theVar, new Attribute("axis", "Z"));
             }
         }
 
@@ -520,12 +526,17 @@ public abstract class NetcdfFileManager {
     }
 
     protected NetcdfFileWriter createTimeDimension(NetcdfFileWriter ncFileWriter, int parseFileDataSize) {
-        ncFileWriter.addDimension(null, "dateTime", parseFileDataSize);
+        return createDimension(ncFileWriter, parseFileDataSize, "dateTime");
+    }
+    
+    protected NetcdfFileWriter createDimension(NetcdfFileWriter ncFileWriter, int parseFileDataSize, String dimName) {
+        if (!coordVars.containsKey(dimName)){
+        ncFileWriter.addDimension(null, dimName, parseFileDataSize);
         if (getShapeAttr().equals("")) {
-            setShapeAttr("dateTime");
+            setShapeAttr(dimName);
         } else {
-            setShapeAttr(getShapeAttr() + " dateTime");
-        }
+            setShapeAttr(getShapeAttr() + " " + dimName);
+        }}
 
         return ncFileWriter;
     }
@@ -536,6 +547,7 @@ public abstract class NetcdfFileManager {
                 rosettaJson.length());
 
         theVar.addAttribute(new Attribute("long_name", "Rosetta front-end sessionStorage JSON String"));
+        // TODO: this "version" should be fetched from elsewhere
         theVar.addAttribute(new Attribute("version", "0.2"));
 
         return ncFileWriter;
@@ -561,7 +573,7 @@ public abstract class NetcdfFileManager {
 
         // now, if relTime was not supplied as a coordVarType, then we know we will need to build a time variable
         // later. Let's create a "time" dimension that will go with our (to-be-created-later) time variable
-        if (!hasRelTime) {
+        if (!hasRelTime && !getPlatformMetadataMap().containsKey("time")) {
             ncFileWriter = createTimeDimension(ncFileWriter, parseFileData.size());
         }
 
@@ -594,6 +606,11 @@ public abstract class NetcdfFileManager {
         // Altitude
         if (getPlatformMetadataMap().containsKey("altitude")) {
             ncFileWriter = createCoordVarsFromPlatform(ncFileWriter, "altitude");
+        }
+
+        // Time
+        if (getPlatformMetadataMap().containsKey("time")) {
+            ncFileWriter = createCoordVarsFromPlatform(ncFileWriter, "time");
         }
 
         // Platform ID
@@ -725,6 +742,7 @@ public abstract class NetcdfFileManager {
 
         dsgWriters.add(new SingleStationTimeSeries());
         dsgWriters.add(new SingleStationTrajectory());
+        dsgWriters.add(new SingleStationProfile());
 
         return dsgWriters;
     }
@@ -762,6 +780,11 @@ public abstract class NetcdfFileManager {
             // Altitude
             if (getPlatformMetadataMap().containsKey("altitude")) {
                 ncFileWriter = writeCoordVarsFromPlatform(ncFileWriter, "altitude");
+            }
+
+            // Time
+            if (getPlatformMetadataMap().containsKey("time")) {
+                ncFileWriter = writeCoordVarsFromPlatform(ncFileWriter, "time");
             }
 
             // Platform ID
