@@ -43,6 +43,11 @@ public class DateTimeBluePrint {
     private Variable fullDateTimeVar = null;
     private HashMap<String, ArrayList<String>> timeRelatedVars;
     private String isoFmt = "yyyy-MM-ddTHH:mm:ss.SSSZ";
+    final static String zeroDate = "1970-01-01T00:00:00Z";
+
+    public static String getZeroDate() {
+        return zeroDate;
+    }
 
     public DateTimeBluePrint() {
     }
@@ -141,7 +146,7 @@ public class DateTimeBluePrint {
                 ncFileWriter.addVariableAttribute(theVar, new Attribute("comment", "ISO8601 format; Created by Rosetta."));
 
                 Variable theVar2 = ncFileWriter.addVariable(null, dateTimeVarName, DataType.INT, dtDims);
-                ncFileWriter.addVariableAttribute(theVar2, new Attribute("units", "seconds since 1970-01-01T00:00:00Z"));
+                ncFileWriter.addVariableAttribute(theVar2, new Attribute("units", "seconds since "+zeroDate));
                 ncFileWriter.addVariableAttribute(theVar2, new Attribute("comment", "Created by Rosetta"));
             }
         }
