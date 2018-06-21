@@ -74,7 +74,7 @@ public class DateTimeBluePrint {
                 numObs = (int) numTimeObs;
                 dateTimeArray = new long[numObs];
                 dateTimeIsoString = new String[numObs];
-                for (int ob = 0; ob < (int) numDateObs; ob++) {
+                for (int ob = 0; ob < numObs; ob++) {
                     date = dateDataArray.getString(ob);
                     time = timeDataArray.getString(ob);
                     dateTimeStr = date + time;
@@ -143,10 +143,12 @@ public class DateTimeBluePrint {
                 dtDims.add(dtDim);
                 Variable theVar = ncFileWriter.addStringVariable(null, dateTimeVarStrName, dtDims, isoFmt.length());
                 ncFileWriter.addVariableAttribute(theVar, new Attribute("format", isoFmt));
+                ncFileWriter.addVariableAttribute(theVar, new Attribute("standard_name", "time"));
                 ncFileWriter.addVariableAttribute(theVar, new Attribute("comment", "ISO8601 format; Created by Rosetta."));
 
                 Variable theVar2 = ncFileWriter.addVariable(null, dateTimeVarName, DataType.INT, dtDims);
                 ncFileWriter.addVariableAttribute(theVar2, new Attribute("units", "seconds since "+zeroDate));
+                ncFileWriter.addVariableAttribute(theVar2, new Attribute("standard_name", "time"));
                 ncFileWriter.addVariableAttribute(theVar2, new Attribute("comment", "Created by Rosetta"));
             }
         }
@@ -168,6 +170,8 @@ public class DateTimeBluePrint {
                 i++;
             }
             ncFileWriter.write(dateTimeVarStr, strVals);
+            Variable variable = ncFileWriter.findVariable(dateTimeVarStrName);
+            ArrayChar dateDataArray = (ArrayChar) variable.read();
 
             // makeDateTime(ncfile, numObs, dateTimeArray)
             Variable dateTimeVar = ncFileWriter.findVariable(dateTimeVarName);

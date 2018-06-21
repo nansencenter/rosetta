@@ -509,7 +509,7 @@ public abstract class NetcdfFileManager {
             // we can have coord like variables (time only, date only, etc) that are not
             // stored as coordinate variables, but they don't need the coordAttr. To filter
             // these out, check to see if coordVarType is "", which is the default.
-            if (coordVarType == "") {
+            if (coordVarType.equals("") && !name.equals("longitude") && !name.equals("latitude")) {
                 ncFileWriter.addVariableAttribute(theVar, new Attribute("coordinates", coordAttr));
             }
         }
@@ -724,6 +724,8 @@ public abstract class NetcdfFileManager {
             }
         }
 
+        Variable variable = ncFileWriter.findVariable("time");
+        ArrayChar dateDataArray = (ArrayChar) variable.read();
         return ncFileWriter;
     }
 

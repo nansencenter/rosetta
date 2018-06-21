@@ -44,7 +44,7 @@ public class SingleStationTrajectory extends NetcdfFileManager {
         if (hasRelTime) {
             setCoordAttr(getRelTimeVarName() + ca);
         } else {
-            setCoordAttr("time" + ca);
+            setCoordAttr("time alt" + ca + " station_name");
         }
     }
 
