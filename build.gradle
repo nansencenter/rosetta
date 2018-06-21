@@ -18,7 +18,7 @@ compileJava {
 }
 
 group = 'edu.ucar.unidata'
-version = '0.3-SNAPSHOT'
+version = '0.5-NERSC'
 
 description = """rosetta"""
 
@@ -98,7 +98,7 @@ war {
     manifest {
         attributes 'Implementation-Version': project.version,
                 'Implementation-Title': project.name,
-                'Implementation-Vendor': 'UCAR/Unidata',
+                'Implementation-Vendor': 'NERSC',
                 'Implementation-Vendor-Id': project.group,
                 'Built-On': new Date(),
                 'Build-Jdk': JavaVersion.current()
@@ -169,7 +169,7 @@ task jekyllServe(type: JRubyExec, group: 'Jekyll', description: 'Serve your site
 
 
 task wrapper(type: Wrapper) {
-    gradleVersion = '3.5'
+    gradleVersion = '3.5.1'
 }
 
 // run coverage with jacoco before sonarqube analysis so that coverabe report
