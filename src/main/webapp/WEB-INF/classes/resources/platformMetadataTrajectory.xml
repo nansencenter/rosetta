@@ -17,24 +17,4 @@
         <units>verticalDistance</units>
     </platformMetadataTrajectoryItem>
 
-
-    <platformMetadataTrajectoryItem>
-        <displayName>Station Latitude</displayName>
-        <tagName>latitude</tagName>
-        <isRequired>true</isRequired>
-        <description>The north-south coordinates of the station where the profile was collected.
-        </description>
-        <units>geoCoordinateSystemLatitude</units>
-    </platformMetadataTrajectoryItem>
-
-
-    <platformMetadataTrajectoryItem>
-        <displayName>Station Longitude</displayName>
-        <tagName>longitude</tagName>
-        <isRequired>true</isRequired>
-        <description>The east-west coordinates of the station where the profile was collected.
-        </description>
-        <units>geoCoordinateSystemLongitude</units>
-    </platformMetadataTrajectoryItem>
-
 </platformMetadataTrajectoryItems>

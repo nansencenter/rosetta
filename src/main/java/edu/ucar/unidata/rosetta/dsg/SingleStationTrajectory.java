@@ -68,7 +68,7 @@ public class SingleStationTrajectory extends NetcdfFileManager {
 
         Variable theVar = ncFileWriter.addVariable(null, name.substring(0, 3), DataType.FLOAT, "");
 
-        ncFileWriter.addVariableAttribute(theVar, new Attribute("Units", coordVarUnits));
+        ncFileWriter.addVariableAttribute(theVar, new Attribute("units", coordVarUnits));
         ncFileWriter.addVariableAttribute(theVar, new Attribute("standard_name", name));
         ncFileWriter.addVariableAttribute(theVar, new Attribute("_platformMetadata", "true"));
 
@@ -113,7 +113,6 @@ public class SingleStationTrajectory extends NetcdfFileManager {
 
         theVar.addAttribute(new Attribute("cf_role", getMyCfRole()));
         theVar.addAttribute(new Attribute("long_name", "station name"));
-        theVar.addAttribute(new Attribute("standard_name", "station_name"));
         theVar.addAttribute(new Attribute("_platformMetadata", "true"));
 
         return ncFileWriter;

@@ -28,15 +28,20 @@
 <table>
     <tr>
         <td>
-            <img src="resources/img/logo/rosetta-150x150.png" alt="Rosetta">
+            <a href="http://rosetta.unidata.ucar.edu">
+                <img src="resources/img/logo/rosetta-150x150.png" alt="Rosetta">
+            </a>
+            <a href="http://nmdc.no">
+                <img src="resources/img/logo/nmdc_logo.png" alt="NMDC">
+            </a>
         </td>
         <td>
             <p>
-            <h1>Rosetta Landing Page</h1>
+            <h1>Rosetta</h1>
             </p>
             <p>
                 <b><i>Rosetta is Beta software under active development, use at your own
-                    risk.</b></i>
+                    risk. This specific version of Rosetta has been tailored for NMDC.</b></i>
             </p>
             <p>
                 Welcome to Rosetta, a data transformation tool. Rosetta is a web-based service that
@@ -49,7 +54,7 @@
             <p>
                 In addition, with the understanding that the observational community does appreciate
                 the ease of use of ASCII files, methods for transforming the netCDF back into a user
-                defined CSV or spreadsheet formats are also incorporated into Rosetta.
+                defined CSV or spreadsheet formats is planned to be incorporated into Rosetta.
             </p>
             <p>
                 We hope that Rosetta will be of value to the science community users who have needs
@@ -62,21 +67,10 @@
             <p>
             <h2>What would you like to do?</h2>
             </p>
-            <a href="create"><img src="resources/img/add.png" alt="Works!"/></a>
-            Create a new template
+            <a href="create"><button type="button">Convert a file to the netCDF format and create a new template</button></a>
             <br>
-            <a href="restore"><img src="resources/img/add.png" alt="Works!"/></a>
-            Upload, modify, and use an existing template
+            <a href="restore"><button type="button">Upload, modify, and use an existing template</button></a>
             <br>
-            <a href="autoConvert"><img src="resources/img/add.png" alt="Works!"/></a>
-            Autoconvert a new data file and transform automatically
-            <br>
-            <a href="augmentMetadata"><img src="resources/img/add.png" alt="Works!"/></a>
-            Augment the metadata of a known format type and transform automatically
-            <br>
-            <img src="resources/img/remove.png" alt="Future Work."/>
-            Upload template and new data file, transform automatically
-            </p>
         </td>
     </tr>
     <tr>

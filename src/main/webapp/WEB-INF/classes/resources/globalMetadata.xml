@@ -1,64 +1,291 @@
 <?xml version='1.0' encoding='utf-8'?>
 <globalMetadataItems>
+
     <globalMetadataItem>
         <displayName>Title</displayName>
         <tagName>title</tagName>
         <isRequired>true</isRequired>
-        <description>The title of this data set.</description>
-    </globalMetadataItem>
-
-
-    <globalMetadataItem>
-        <displayName>Description</displayName>
-        <tagName>description</tagName>
-        <isRequired>true</isRequired>
-        <description>General description of this dataset.</description>
-    </globalMetadataItem>
-
-
-    <globalMetadataItem>
-        <displayName>Institution</displayName>
-        <tagName>institution</tagName>
-        <isRequired>true</isRequired>
-        <description>The name of the institution or organization providing the dataset.
+        <description>A succinct description of what is in the dataset.
         </description>
     </globalMetadataItem>
-
     <globalMetadataItem>
-        <displayName>Data Author</displayName>
-        <tagName>dataAuthor</tagName>
-        <description>The name of the person collecting the data.</description>
+        <displayName>ID</displayName>
+        <tagName>id</tagName>
+        <isRequired>true</isRequired>
+        <description>The "id" and "naming_authority" attributes are intended
+            to provide a globally unique identification for each dataset. The id
+            may be the file name without .nc suffix, which is designed to be
+            unique.
+        </description>
     </globalMetadataItem>
-
     <globalMetadataItem>
-        <displayName>Version</displayName>
-        <tagName>version</tagName>
-        <description>The version number of this dataset.</description>
+        <displayName>Naming Authority</displayName>
+        <tagName>naming_authority</tagName>
+        <isRequired>true</isRequired>
+        <description>The organization that provides the initial id (see above)
+            for the dataset. The naming authority should be uniquely specified by
+            this attribute. We recommend using reverse-DNS naming for the naming
+            authority; URIs are also acceptable. Example: 'edu.ucar.unidata'.
+        </description>
     </globalMetadataItem>
-
     <globalMetadataItem>
-        <displayName>Data Source</displayName>
-        <tagName>dataSource</tagName>
-        <description>The data logger/instrumentation make and model.</description>
+        <displayName>Summary</displayName>
+        <tagName>summary</tagName>
+        <isRequired>true</isRequired>
+        <description>Longer free-format text describing the dataset. This
+            attribute should allow data discovery for a human reader. A paragraph
+            of up to 100 words is appropriate.
+        </description>
     </globalMetadataItem>
-
     <globalMetadataItem>
-        <displayName>Comment</displayName>
-        <tagName>comment</tagName>
-        <description>Any comments applicable to this dataset.</description>
+        <displayName>ISO Topic Category</displayName>
+        <tagName>iso_topic_category</tagName>
+        <isRequired>true</isRequired>
+        <description>The "ISO_Topic_Category" field is used to identify the
+            keywords in the ISO 19115 - Geographic Information Metadata Topic
+            Category Code List.
+        </description>
     </globalMetadataItem>
-
+    <globalMetadataItem>
+        <displayName>Keywords</displayName>
+        <tagName>keywords</tagName>
+        <isRequired>true</isRequired>
+        <description>Comma-separated list of terms that will aid in discovery
+            of the dataset.
+        </description>
+    </globalMetadataItem>
+    <globalMetadataItem>
+        <displayName>Keywords Vocabulary</displayName>
+        <tagName>keywords_vocabulary</tagName>
+        <isRequired>true</isRequired>
+        <description>Please use one of ‘GCMD Science Keywords’, 'SeaDataNet
+            Parameter Discovery Vocabulary' or 'AGU Index Terms'. If multiple
+            vocabularies are used, each keywords will need its corresponding
+            vocabulary element. For DIF compliance, at least one GCMD keyword is
+            required.
+        </description>
+    </globalMetadataItem>
+    <globalMetadataItem>
+        <displayName>Data Assembly Center</displayName>
+        <tagName>data_assembly_center</tagName>
+        <isRequired>true</isRequired>
+        <description>Data Assembly Center in charge of this data file. Use
+            GCMD Data Centers list.
+        </description>
+    </globalMetadataItem>
+    <globalMetadataItem>
+        <displayName>License</displayName>
+        <tagName>license</tagName>
+        <isRequired>true</isRequired>
+        <description>A statement describing the data distribution policy
+        </description>
+    </globalMetadataItem>
+    <globalMetadataItem>
+        <displayName>Processing Level</displayName>
+        <tagName>processing_level</tagName>
+        <isRequired>true</isRequired>
+        <description>Level of processing and quality control applied to data.
+            Preferred values are listed in reference Table 3.
+        </description>
+    </globalMetadataItem>
+    <globalMetadataItem>
+        <displayName>Publisher Name</displayName>
+        <tagName>publisher_name</tagName>
+        <isRequired>true</isRequired>
+        <description>Name of the person responsible for metadata and
+            formatting of the data file.
+        </description>
+    </globalMetadataItem>
+    <globalMetadataItem>
+        <displayName>Publisher Email</displayName>
+        <tagName>publisher_email</tagName>
+        <description>Email address of person responsible for metadata and
+            formatting of the data file.
+        </description>
+    </globalMetadataItem>
+    <globalMetadataItem>
+        <displayName>Data Set Language</displayName>
+        <tagName>data_set_language</tagName>
+        <description>Describes the language used in the preparation, storage,
+            and description of the data.
+        </description>
+    </globalMetadataItem>
+    <globalMetadataItem>
+        <displayName>Data Set Progress</displayName>
+        <tagName>data_set_progress</tagName>
+        <description>Describes the production status of the data set
+            regarding its completeness.
+        </description>
+    </globalMetadataItem>
+    <globalMetadataItem>
+        <displayName>Publisher Url</displayName>
+        <tagName>publisher_url</tagName>
+        <description>Web address of the institution or of the data publisher.
+        </description>
+    </globalMetadataItem>
+    <globalMetadataItem>
+        <displayName>Platform</displayName>
+        <tagName>platform</tagName>
+        <description>The name of the platform used to acquire the data.
+        </description>
+    </globalMetadataItem>
+    <globalMetadataItem>
+        <displayName>Project</displayName>
+        <tagName>project</tagName>
+        <description>The scientific project that produced the data.
+        </description>
+    </globalMetadataItem>
+    <globalMetadataItem>
+        <displayName>Source</displayName>
+        <tagName>source</tagName>
+        <description>The method of production of the original data. If it was
+            model-generated, source should name the model and its version, as
+            specifically as could be useful. If it is observational, source
+            should characterize it (e.g., "surface observation" or "radiosonde").
+        </description>
+    </globalMetadataItem>
     <globalMetadataItem>
         <displayName>History</displayName>
         <tagName>history</tagName>
-        <description>History of this dataset.</description>
+        <description>Provides an audit trail for modifications to the
+            original data. Well-behaved generic netCDF filters will automatically
+            append their name and the parameters with which they were invoked to
+            the global history attribute of an input netCDF file. We recommend
+            that each line begin with a timestamp indicating the date and time of
+            day that the program was executed.
+        </description>
     </globalMetadataItem>
-
+    <globalMetadataItem>
+        <displayName>Citation</displayName>
+        <tagName>citation</tagName>
+        <description>The citation to be used in publications using the
+            dataset
+        </description>
+    </globalMetadataItem>
+    <globalMetadataItem>
+        <displayName>Ancillary Keywords</displayName>
+        <tagName>ancillary_keywords</tagName>
+        <description>ancillary_keywords allows authors to provide any words
+            or phrases needed to further describe the data set.
+        </description>
+    </globalMetadataItem>
+    <globalMetadataItem>
+        <displayName>Private Description</displayName>
+        <tagName>private_description</tagName>
+        <description>Allows the author to restrict the data set description
+            from being publicly available. Value should be either "true" or
+            "false".
+        </description>
+    </globalMetadataItem>
     <globalMetadataItem>
         <displayName>References</displayName>
         <tagName>references</tagName>
-        <description>Any references applicable to this dataset.</description>
+        <description>Published or web-based references that describe the data
+            or methods used to produce it.
+        </description>
     </globalMetadataItem>
-
+    <globalMetadataItem>
+        <displayName>Comment</displayName>
+        <tagName>comment</tagName>
+        <description>Miscellaneous information about the data or methods used
+            to produce it.
+        </description>
+    </globalMetadataItem>
+    <globalMetadataItem>
+        <displayName>Multimedia Sample</displayName>
+        <tagName>multimedia_sample</tagName>
+        <description>Allows the author to provide information that will
+            enable the display of a sample image, movie or sound clip.
+        </description>
+    </globalMetadataItem>
+    <globalMetadataItem>
+        <displayName>Related Url</displayName>
+        <tagName>related_url</tagName>
+        <description>The "Related_URL" field specifies links to Internet
+            sites that contain information related to the data
+        </description>
+    </globalMetadataItem>
+    <globalMetadataItem>
+        <displayName>Area</displayName>
+        <tagName>area</tagName>
+        <description>North/Tropical/South Atlantic/Pacific/Indian Ocean,
+            Southern Ocean, Arctic Ocean. Geographical coverage. Try to compose
+            of the following:
+        </description>
+    </globalMetadataItem>
+    <globalMetadataItem>
+        <displayName>Geospatial Lat Resolution</displayName>
+        <tagName>geospatial_lat_resolution</tagName>
+        <description>Latitude Resolution in units matching
+            geospatial_lat_units.
+        </description>
+    </globalMetadataItem>
+    <globalMetadataItem>
+        <displayName>Geospatial Lon Resolution</displayName>
+        <tagName>geospatial_lon_resolution</tagName>
+        <description>Longitude Resolution in units matching
+            geospatial_lon_units.
+        </description>
+    </globalMetadataItem>
+    <globalMetadataItem>
+        <displayName>Geospatial Vertical Positive</displayName>
+        <tagName>geospatial_vertical_positive</tagName>
+        <description>Indicates which direction is positive; "up" means that z
+            represents height, while a value of "down" means that z represents
+            pressure or depth. If not specified then "down" is assumed.
+        </description>
+    </globalMetadataItem>
+    <globalMetadataItem>
+        <displayName>Geospatial Vertical Resolution</displayName>
+        <tagName>geospatial_vertical_resolution</tagName>
+        <description>Vertical Resolution in units matching
+            geospatial_vertical_units.
+        </description>
+    </globalMetadataItem>
+    <globalMetadataItem>
+        <displayName>Time Coverage Resolution</displayName>
+        <tagName>time_coverage_resolution</tagName>
+        <description>Interval between records: Use ISO 8601 (PnYnMnDTnHnMnS)
+            e.g. PT5M for 5 minutes, PT1H for hourly, PT30S for 30 seconds.
+        </description>
+    </globalMetadataItem>
+    <globalMetadataItem>
+        <displayName>Acknowledgement</displayName>
+        <tagName>acknowledgement</tagName>
+        <description>A place to acknowledge various types of support for the
+            project that produced this data.
+        </description>
+    </globalMetadataItem>
+    <globalMetadataItem>
+        <displayName>Contributor Name</displayName>
+        <tagName>contributor_name</tagName>
+        <description>A semi-colon-separated list of the names of any
+            individuals or institutions that contributed to the creation of this
+            data.
+        </description>
+    </globalMetadataItem>
+    <globalMetadataItem>
+        <displayName>Contributor Email</displayName>
+        <tagName>contributor_email</tagName>
+        <description>The email addresses of any individuals or institutions
+            that contributed to the creation of this data, separated by
+            semi-colons.
+        </description>
+    </globalMetadataItem>
+    <globalMetadataItem>
+        <displayName>Contributor Role</displayName>
+        <tagName>contributor_role</tagName>
+        <description>The roles of any individuals or institutions that
+            contributed to the creation of this data, separated by semi-colons.
+        </description>
+    </globalMetadataItem>
+    <globalMetadataItem>
+        <displayName>Update Interval</displayName>
+        <tagName>update_interval</tagName>
+        <description>Update interval for the file, in ISO 8601 Interval
+            format: PnYnMnDTnHnM where elements that are 0 may be omitted. Use
+            "void" for data that are not updated on a schedule.
+        </description>
+    </globalMetadataItem>
 
 </globalMetadataItems>

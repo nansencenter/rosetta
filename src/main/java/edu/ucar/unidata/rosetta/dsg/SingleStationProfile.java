@@ -17,8 +17,12 @@ import ucar.nc2.NetcdfFileWriter;
 import ucar.nc2.Variable;
 import javax.xml.bind.DatatypeConverter;
 
+import org.apache.log4j.Logger;
+
 public class SingleStationProfile extends NetcdfFileManager {
 
+    protected static Logger logger = Logger.getLogger(SingleStationProfile.class);
+                    
     public SingleStationProfile() {
         super.setMyCfRole("profile_id");
         super.setMyDsgType("profile");
@@ -62,6 +66,7 @@ public class SingleStationProfile extends NetcdfFileManager {
         String coordVarUnits = getPlatformMetadataMap().get(name + "Units");
 
         String varName = name;
+        System.out.println("Writing:"+varName);
         if (!name.equals("time")) {
             varName = name.substring(0, 3);
         } else {
