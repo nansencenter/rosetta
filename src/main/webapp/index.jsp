@@ -20,6 +20,7 @@
 
         img {
             padding-top: 25pt;
+            width: 200px;
         }
     </style>
     <title>Rosetta</title>
@@ -28,12 +29,11 @@
 <table>
     <tr>
         <td>
-            <a href="http://rosetta.unidata.ucar.edu">
-                <img src="resources/img/logo/rosetta-150x150.png" alt="Rosetta">
-            </a>
-            <a href="http://nmdc.no">
-                <img src="resources/img/logo/nmdc_logo.png" alt="NMDC">
-            </a>
+            <a href="http://rosetta.unidata.ucar.edu"><img src="resources/img/logo/rosetta-150x150.png" alt="Rosetta"></a>
+            <br>
+            <a href="http://nmdc.no"><img src="resources/img/logo/nmdc_logo.png" alt="NMDC"></a>
+            <br>
+            <a href="https://www.nordatanet.no/"><img src="resources/img/logo/NorDataNet-logo.png" alt="NorDataNet"></a>
         </td>
         <td>
             <p>
