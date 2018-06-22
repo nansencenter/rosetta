@@ -548,7 +548,7 @@ public abstract class NetcdfFileManager {
 
         theVar.addAttribute(new Attribute("long_name", "Rosetta front-end sessionStorage JSON String"));
         // TODO: this "version" should be fetched from elsewhere
-        theVar.addAttribute(new Attribute("version", "0.5-NERSC"));
+        theVar.addAttribute(new Attribute("version", "0.5.1-NERSC"));
 
         return ncFileWriter;
     }
