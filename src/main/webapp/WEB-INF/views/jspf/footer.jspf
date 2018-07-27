@@ -17,9 +17,28 @@
     </tr>
 </table>
 <br>
-<a href="<spring:message code="unidata.banner.url"/>">
-    <img src="<spring:message code="unidata.banner.path"/>"
-         alt="<spring:message code="unidata.banner.alt"/>" align="left"/>
+<a href="<spring:message code="nmdc.banner.url"/>"> 
+  <img
+	src="<spring:message code="nmdc.banner.path"/>"
+	alt="<spring:message code="nmdc.banner.alt"/>" 
+	align="left" 
+	height="100" />
+</a>
+<a href="<spring:message code="nordatanet.banner.url"/>">
+  <img 
+    src="<spring:message code="nordatanet.banner.path"/>"
+	alt="<spring:message code="nordatanet.banner.alt"/>" 
+	align="left" 
+	height="100"
+	hspace="50" 
+  />
+</a>
+<a href="<spring:message code="unidata.banner.url"/>"> 
+  <img
+	src="<spring:message code="unidata.banner.path"/>"
+	alt="<spring:message code="unidata.banner.alt"/>" 
+	align="left" 
+	height="60"  />
 </a>
 
 <script language="JavaScript">
