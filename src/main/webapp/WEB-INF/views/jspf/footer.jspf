@@ -40,6 +40,13 @@
 	align="left" 
 	height="60"  />
 </a>
+<a href="<spring:message code="sios.banner.url"/>"> 
+  <img
+	src="<spring:message code="sios.banner.path"/>"
+	alt="<spring:message code="sios.banner.alt"/>" 
+	align="left" 
+	height="60"  />
+</a>
 
 <script language="JavaScript">
 

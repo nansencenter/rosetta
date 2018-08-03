@@ -34,6 +34,8 @@
             <a href="http://nmdc.no"><img src="resources/img/logo/nmdc_logo.png" alt="NMDC"></a>
             <br>
             <a href="https://www.nordatanet.no/"><img src="resources/img/logo/NorDataNet-logo.png" alt="NorDataNet"></a>
+            <br>
+            <a href="https://sios-svalbard.org/"><img src="resources/img/logo/SIOS_logo.png" alt="SIOS"></a>
         </td>
         <td>
             <p>
