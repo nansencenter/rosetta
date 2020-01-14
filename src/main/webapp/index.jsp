@@ -38,12 +38,12 @@
             <a href="https://sios-svalbard.org/"><img src="resources/img/logo/SIOS_logo.png" alt="SIOS"></a>
         </td>
         <td>
-            <p>
+            
             <h1>Rosetta</h1>
-            </p>
+            <br />
             <p>
                 <b><i>Rosetta is Beta software under active development, use at your own
-                    risk. This specific version of Rosetta has been tailored for NMDC.</b></i>
+                    risk. This specific version of Rosetta has been tailored for NMDC.</i></b>
             </p>
             <p>
                 Welcome to Rosetta, a data transformation tool. Rosetta is a web-based service that
@@ -66,9 +66,9 @@
                 Rosetta is currently under continued further development, and ready for beta
                 testing.
             </p>
-            <p>
+            <br />
             <h2>What would you like to do?</h2>
-            </p>
+            
             <a href="create"><button type="button">Convert a file to the netCDF format and create a new template</button></a>
             <br>
             <a href="restore"><button type="button">Upload, modify, and use an existing template</button></a>

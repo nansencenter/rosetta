@@ -37,7 +37,7 @@
     </div>
 
     <div id="step3" title="Augment Metadata">
-        <h5><Add or Change the Metadata/></h5>
+        <h5>Add or Change the Metadata</h5>
         <c:choose>
             <c:when test="${fn:length(oiipGlobalMetadataItems) gt 0}">
                 <ul class="oiipGlobalMetadata">
@@ -67,10 +67,10 @@
                         <li>
                             <c:choose>
                                 <c:when test="${oiipGlobalMetadataItem.isRequired}">
-                                    <lable class="empty required">
+                                    <label class="empty required">
                                 </c:when>
                                 <c:otherwise>
-                                    <lable class="empty">
+                                    <label class="empty">
                                 </c:otherwise>
                             </c:choose>
                                 <c:choose>
@@ -90,9 +90,9 @@
                                        value=""/>
                             </label>
                             <label class="error"></label>
-                        </lable>
+                        </label>
                     </c:forEach>
-                    <div id="containerForCustomAttributes"/>
+                    <div id="containerForCustomAttributes"></div>
                 </ul>
             </c:when>
             <c:otherwise>

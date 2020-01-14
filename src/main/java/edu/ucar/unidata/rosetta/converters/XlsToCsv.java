@@ -81,12 +81,13 @@ public class XlsToCsv {
 
             //File to store data in form of CSV
             if (csvFile == null) {
-                if (xlsFile.contains(".xlsx")) {
+                csvFile = xlsFile.replaceFirst("[.][^./]+$", ".csv");
+/*                 if (xlsFile.contains(".xlsx")) {
                     csvFile = xlsFile.replace(".xls", ".csv");
                 } else {
                     csvFile = xlsFile.replace(".xls", ".csv");
                 }
-            }
+ */            }
 
             File f = new File(csvFile);
             // if file doesnt exists, then create it
