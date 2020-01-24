@@ -45,6 +45,7 @@
             keywords in the ISO 19115 - Geographic Information Metadata Topic
             Category Code List.
         </description>
+        <units>ISOtopic</units>
     </globalMetadataItem>
     <globalMetadataItem>
         <displayName>Keywords</displayName>

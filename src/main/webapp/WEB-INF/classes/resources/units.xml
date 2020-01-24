@@ -17,4 +17,27 @@
         <value>meters</value>
         <value>feet</value>
     </unit>
+    <unit>
+        <name>ISOtopic</name>
+        <value>select one...</value>
+        <value>biota</value>
+        <value>boundaries</value>
+        <value>climatologyMeteorologyAtmosphere</value>
+        <value>economy</value>
+        <value>elevation</value>
+        <value>environment</value>
+        <value>farming</value>
+        <value>geoscientificInformation</value>
+        <value>health</value>
+        <value>imageryBaseMapsEarthCover</value>
+        <value>inlandWaters</value>
+        <value>intelligenceMilitary</value>
+        <value>location</value>
+        <value>oceans</value>
+        <value>planningCadastre</value>
+        <value>society</value>
+        <value>structure</value>
+        <value>transportation</value>
+        <value>utilitiesCommunication</value>
+    </unit>
 </units>

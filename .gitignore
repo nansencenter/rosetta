@@ -23,6 +23,7 @@ build/
 .idea/
 ide/intellij/
 rosetta.iml
+.vscode/
 #
 # Eclipse files
 #

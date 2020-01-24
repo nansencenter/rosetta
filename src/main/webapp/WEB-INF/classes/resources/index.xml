@@ -36,4 +36,8 @@
         <fileName>publishers.xml</fileName>
         <type>publisher</type>
     </resource>
+<!---    <resource>
+        <fileName>ISOtopic.xml</fileName>
+        <type>ISOtopic</type>
+    </resource>    -->
 </resources>

@@ -783,7 +783,7 @@ function bindImportMetdataEvents(sessionKey) {
  * data associated with the column. This HTML is added to the dialog DOM
  * and the event handlers for the inserted HTML are bound.
  *
- * @param sessionKey  The key used to store the data in the session.
+ * @param sessionKey  The key usegridForVariableSpecificationd to store the data in the session.
  */
 function addContentToDialog(sessionKey) {
     $("#dialog").empty(); // start off with a dialog box free of content
@@ -1037,7 +1037,7 @@ function createUnitBuilder(sessionKey) {
 /**
  * Creates the initial HTML input tags for the existing metadata importer.
  *
- * @param sessionKey  The key used to store the data in the session.
+ * @param sessionKey  The key usegridForVariableSpecificationd to store the data in the session.
  */
 function createExistingMetadataImporter(sessionKey) {
     var optionTags = "<option value=\"\">---- select one ----</option>";

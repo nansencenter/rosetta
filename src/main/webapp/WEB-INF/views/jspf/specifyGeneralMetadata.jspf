@@ -1,3 +1,6 @@
+<script type="text/javascript">
+	units = {};
+</script>
 <c:choose>
     <c:when test="${fn:length(globalMetadataItems) gt 0}">
         <ul>
@@ -16,7 +19,9 @@
                     </c:choose>
                     <c:choose>
                     <c:when test="${globalMetadataItem.units != null}">
-                    obj["units"] = true;
+                    obj["units"] = "<c:out value="${globalMetadataItem.units.replaceAll(newLineChar,'')}" />";
+                    console.log("obj units")
+                    console.log(obj["units"])
                     </c:when>
                     <c:otherwise>
                     obj["units"] = false;
@@ -24,6 +29,7 @@
                     </c:choose>
                     generalMetadata.push(obj);
                 </script>
+                <input type="hidden" name="${globalMetadataItem.tagName}" value="">
                 <li>
                     <label>
                         <c:choose>
@@ -39,13 +45,33 @@
                             </c:when>
                         </c:choose>
                         <br/>
-                        <input type='checkbox' name="${globalMetadataItem.tagName}"> is a regex
-                        <br/>
-                        <input type="text" name="<c:out value="${globalMetadataItem.tagName}" />"
-                               value=""/>
+                        <c:choose>
+                            <c:when test="${globalMetadataItem.units != null}">
+
+								<select name="<c:out value="${globalMetadataItem.tagName}" />" >
+<!--                               	<input type="text" name="<c:out value="${globalMetadataItem.tagName}" />"
+                                    value=""/>    
+-->                            </c:when>
+                            <c:otherwise>
+		                        <input type='checkbox' name="${globalMetadataItem.tagName}"> is a regex
+		                        <br/>
+                                <input type="text" name="<c:out value="${globalMetadataItem.tagName}" />"
+                                    value=""/>
+                            </c:otherwise>
+                        </c:choose>
+                        
                     </label>
                     <label class="error"></label>
                 </li>
+            </c:forEach>
+            <c:forEach items="${units}" var="unit">
+                <script type="text/javascript">
+                    var options = "";
+                    <c:forEach items="${unit.value}" var="val">
+                        options += "<option value=\"<c:out value="${val}" />\"><c:out value="${val}" /></option>";
+                    </c:forEach>
+                    units["${unit.name}"] = options;
+                </script>
             </c:forEach>
             <div id="containerForCustomAttributes"/>
         </ul>

@@ -6,7 +6,7 @@
 <!-- TODO: Figure out how to not hardcode these and avoid the 3x duplicated code below Also,
      fix the possibility of adding line breaks to elements in the xml files -->
 <c:forEach items="${platformMetadataItems}" var="platformMetadataItem">
-	<script type="text/javascript">
+    <script type="text/javascript">
         var type = "default";
         var obj = {};
         obj["tagName"] = "<c:out value="${platformMetadataItem.tagName.replaceAll(newLineChar,'')}" />";
@@ -42,8 +42,8 @@
     </script>
 </c:forEach>
 <c:forEach items="${platformMetadataProfileItems}"
-	var="platformMetadataItem">
-	<script type="text/javascript">
+    var="platformMetadataItem">
+    <script type="text/javascript">
         var type = "profile";
         var obj = {};
         obj["tagName"] = "<c:out value="${platformMetadataItem.tagName.replaceAll(newLineChar,'')}" />";
@@ -79,8 +79,8 @@
     </script>
 </c:forEach>
 <c:forEach items="${platformMetadataTrajectoryItems}"
-	var="platformMetadataItem">
-	<script type="text/javascript">
+    var="platformMetadataItem">
+    <script type="text/javascript">
         var type = "trajectory";
         var obj = {};
         obj["tagName"] = "<c:out value="${platformMetadataItem.tagName.replaceAll(newLineChar,'')}" />";
@@ -116,10 +116,10 @@
     </script>
 </c:forEach>
 <c:forEach items="${units}" var="unit">
-	<script type="text/javascript">
+    <script type="text/javascript">
         var options = "";
         <c:forEach items="${unit.value}" var="val">
-        options += "<option value=\"<c:out value="${val}" />\"><c:out value="${val}" /></option>";
+            options += "<option value=\"<c:out value="${val}" />\"><c:out value="${val}" /></option>";
         </c:forEach>
         units["${unit.name}"] = options;
     </script>

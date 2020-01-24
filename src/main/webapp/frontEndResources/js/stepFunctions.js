@@ -456,6 +456,12 @@ function specifyGeneralMetadata(stepType, stepData) {
                     }
                 }
             }
+            
+            //Populate select box(es) from session storage
+            var stepElementSelect = "#step" + stepData.nextStepIndex + " select";
+            var inputSelects = $(stepElementSelect);
+            inputSelects.append(units["ISOtopic"]);
+            
             // populate text input elements from sessionStorage
             var stepElement = "#step" + stepData.nextStepIndex + " input[type=\"text\"]";
             var inputElements = $(stepElement);
