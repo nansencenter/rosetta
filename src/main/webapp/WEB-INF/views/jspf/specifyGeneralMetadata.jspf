@@ -29,7 +29,6 @@
                     </c:choose>
                     generalMetadata.push(obj);
                 </script>
-                <input type="hidden" name="${globalMetadataItem.tagName}" value="">
                 <li>
                     <label>
                         <c:choose>
@@ -49,7 +48,10 @@
                             <c:when test="${globalMetadataItem.units != null}">
 
 								<select name="<c:out value="${globalMetadataItem.tagName}" />" >
-<!--                               	<input type="text" name="<c:out value="${globalMetadataItem.tagName}" />"
+								</select>
+<!--								<input type="hidden" name="<c:out value="${globalMetadataItem.tagName}" />"
+                                    value=""/>
+                               	<input type="text" name="<c:out value="${globalMetadataItem.tagName}" />"
                                     value=""/>    
 -->                            </c:when>
                             <c:otherwise>

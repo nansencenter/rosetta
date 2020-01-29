@@ -19,7 +19,7 @@ function validateMetadataEntries(metadataArray, metadataType, currentStep) {
         var errorLabel = $(".jw-step:eq(" + currentStep + ")")
             .find("label[for=\"" + obj["tagName"] + "\"]");
         var userEnteredValue = getItemEntered(metadataType, obj["tagName"]);
-
+        
         if (userEnteredValue == null) {
             if (obj["isRequired"]) {
                 $(errorLabel).text("You need to provide input for " + obj["displayName"]);
@@ -36,7 +36,8 @@ function validateMetadataEntries(metadataArray, metadataType, currentStep) {
                 if (obj["units"]) {
                     var units = $(".jw-step:eq(" + currentStep + ")")
                         .find("select[name=\"" + obj["tagName"] + "Units\"]").attr("value");
-                    var metadataString = buildStringForSession("platformMetadata",
+                                        
+                    var metadataString = buildStringForSession(metadataType,
                                                                obj["tagName"] + "Units", units);
                     addToSession(metadataType, metadataString);
                 }

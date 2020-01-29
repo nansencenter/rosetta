@@ -589,6 +589,21 @@ function specifyGeneralMetadata(stepType, stepData) {
             // see if we can expose the next button
             checkAndExposeNext("generalMetadata");
         });
+        
+        var stepElementSelect = "#step" + stepData + " select";
+        // grab initial values for the select elements
+//        $(stepElementSelect).each(function () {
+        $(stepElementSelect).on("change", function () {
+            if ($(this).attr("value") != "") {
+                // add to the session
+                var metadataString = buildStringForSession("generalMetadata", $(this).attr("name"),
+                                                           $(this).attr("value"));
+                addToSession("generalMetadata", metadataString);
+            }
+            // see if we can expose the next button
+            checkAndExposeNext("generalMetadata");
+        });
+        
         specifyGeneralMetadata("repopulateStep",{"nextStepIndex":stepData});
     }
 }
