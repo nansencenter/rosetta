@@ -1,5 +1,5 @@
 <script type="text/javascript">
-	units = {};
+    units = {};
 </script>
 <c:choose>
     <c:when test="${fn:length(globalMetadataItems) gt 0}">
@@ -47,16 +47,12 @@
                         <c:choose>
                             <c:when test="${globalMetadataItem.units != null}">
 
-								<select name="<c:out value="${globalMetadataItem.tagName}" />" >
-								</select>
-<!--								<input type="hidden" name="<c:out value="${globalMetadataItem.tagName}" />"
-                                    value=""/>
-                               	<input type="text" name="<c:out value="${globalMetadataItem.tagName}" />"
-                                    value=""/>    
--->                            </c:when>
+                                <select name="<c:out value="${globalMetadataItem.tagName}" />" >
+                                </select>
+                            </c:when>
                             <c:otherwise>
-		                        <input type='checkbox' name="${globalMetadataItem.tagName}"> is a regex
-		                        <br/>
+                                <input type='checkbox' name="${globalMetadataItem.tagName}"> is a regex
+                                <br/>
                                 <input type="text" name="<c:out value="${globalMetadataItem.tagName}" />"
                                     value=""/>
                             </c:otherwise>

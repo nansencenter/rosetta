@@ -40,4 +40,10 @@
         <value>transportation</value>
         <value>utilitiesCommunication</value>
     </unit>
+    <unit>
+        <name>KeywordsVocabulary</name>
+        <value>GCMD Science Keywords </value>
+        <value>SeaDataNet Parameter Discovery Vocabulary</value>
+        <value>AGU Index Terms</value>
+    </unit>
 </units>

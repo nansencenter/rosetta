@@ -65,6 +65,7 @@
             vocabulary element. For DIF compliance, at least one GCMD keyword is
             required.
         </description>
+        <units>KeywordsVocabulary</units>
     </globalMetadataItem>
     <globalMetadataItem>
         <displayName>Data Assembly Center</displayName>

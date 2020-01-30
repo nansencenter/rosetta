@@ -459,8 +459,10 @@ function specifyGeneralMetadata(stepType, stepData) {
             
             //Populate select box(es) from session storage
             var stepElementSelect = "#step" + stepData.nextStepIndex + " select";
+            debugger;
             var inputSelects = $(stepElementSelect);
-            inputSelects.append(units["ISOtopic"]);	// Currently only works with ISO topic category
+            //inputSelects.append(units["ISOtopic"]);	// Currently only works with ISO topic category
+            
             for (var i = 0; i < inputSelects.length; i++) {
                 var name = $(inputSelects[i]).attr("name");
                 var itemInSession = getItemEntered("generalMetadata", name);
@@ -602,6 +604,7 @@ function specifyGeneralMetadata(stepType, stepData) {
             checkAndExposeNext("generalMetadata");
         });
         
+        //when Select has changed
         var stepElementSelect = "#step" + stepData + " select";
         // grab initial values for the select elements
 //        $(stepElementSelect).each(function () {
@@ -1022,6 +1025,7 @@ function repopulatePlatformMetadata(step) {
 
     // populate select elements from sessionStorage
     var stepElementSelect = "#step" + step + " select";
+    debugger;
     var inputElementsSelect = $(stepElementSelect);
     for (var i = 0; i < inputElementsSelect.length; i++) {
         var name = $(inputElementsSelect[i]).attr("name");
