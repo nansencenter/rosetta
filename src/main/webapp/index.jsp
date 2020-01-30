@@ -42,8 +42,7 @@
             <h1>Rosetta</h1>
             <br />
             <p>
-                <b><i>Rosetta is Beta software under active development, use at your own
-                    risk. This specific version of Rosetta has been tailored for NMDC.</i></b>
+                <b><i>This specific version of Rosetta has been tailored for NMDC, NordataNet and SIOS.</i></b>
             </p>
             <p>
                 Welcome to Rosetta, a data transformation tool. Rosetta is a web-based service that

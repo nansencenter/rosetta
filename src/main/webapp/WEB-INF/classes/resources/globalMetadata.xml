@@ -9,13 +9,12 @@
         </description>
     </globalMetadataItem>
     <globalMetadataItem>
-        <displayName>ID</displayName>
-        <tagName>id</tagName>
+        <displayName>Summary</displayName>
+        <tagName>summary</tagName>
         <isRequired>true</isRequired>
-        <description>The "id" and "naming_authority" attributes are intended
-            to provide a globally unique identification for each dataset. The id
-            may be the file name without .nc suffix, which is designed to be
-            unique.
+        <description>Longer free-format text describing the dataset. This
+            attribute should allow data discovery for a human reader. A paragraph
+            of up to 100 words is appropriate.
         </description>
     </globalMetadataItem>
     <globalMetadataItem>
@@ -29,12 +28,13 @@
         </description>
     </globalMetadataItem>
     <globalMetadataItem>
-        <displayName>Summary</displayName>
-        <tagName>summary</tagName>
+        <displayName>ID</displayName>
+        <tagName>id</tagName>
         <isRequired>true</isRequired>
-        <description>Longer free-format text describing the dataset. This
-            attribute should allow data discovery for a human reader. A paragraph
-            of up to 100 words is appropriate.
+        <description>The "id" and "naming_authority" attributes are intended
+            to provide a globally unique identification for each dataset. The id
+            may be the file name without .nc suffix, which is designed to be
+            unique.
         </description>
     </globalMetadataItem>
     <globalMetadataItem>
@@ -48,14 +48,6 @@
         <units>ISOtopic</units>
     </globalMetadataItem>
     <globalMetadataItem>
-        <displayName>Keywords</displayName>
-        <tagName>keywords</tagName>
-        <isRequired>true</isRequired>
-        <description>Comma-separated list of terms that will aid in discovery
-            of the dataset.
-        </description>
-    </globalMetadataItem>
-    <globalMetadataItem>
         <displayName>Keywords Vocabulary</displayName>
         <tagName>keywords_vocabulary</tagName>
         <isRequired>true</isRequired>
@@ -66,6 +58,14 @@
             required.
         </description>
         <units>KeywordsVocabulary</units>
+    </globalMetadataItem>
+    <globalMetadataItem>
+        <displayName>Keywords</displayName>
+        <tagName>keywords</tagName>
+        <isRequired>true</isRequired>
+        <description>Comma-separated list of terms that will aid in discovery
+            of the dataset.
+        </description>
     </globalMetadataItem>
     <globalMetadataItem>
         <displayName>Data Assembly Center</displayName>
