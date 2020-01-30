@@ -457,33 +457,26 @@ function specifyGeneralMetadata(stepType, stepData) {
                 }
             }
             
-            //Populate select box(es) from session storage
+            //Populate select boxes from session storage
             var stepElementSelect = "#step" + stepData.nextStepIndex + " select";
             var inputSelects = $(stepElementSelect);
-//            debugger;
-//            inputSelects.append(units["ISOtopic"]);	// Currently only works with ISO topic category
-	            for (var i = 0; i < inputSelects.length; i++) {
-	                var name = $(inputSelects[i]).attr("name");
-	                console.log(name);
-	                for ( var j in generalMetadata) {
-	                	if (generalMetadata[j].units != false && generalMetadata[j].tagName == name) {
-	                		if(inputSelects[i].length == 0) {
-	                			$(inputSelects[i]).append(units[generalMetadata[j].units]);
-	                			
-//	                			$(inputSelects[i]).val(un]);
-	                		}
-	                		
-	                	}
-	                }
-	                var itemInSession = getItemEntered("generalMetadata", name);
-	                if (itemInSession != null) {
-	                    $("select[name=\"" + name + "\"]").val(itemInSession);
-	                } else {
-	                    var metadataString = buildStringForSession("generalMetadata", name, $("select[name=\"" + name + "\"]").val());
-	                    addToSession("generalMetadata", metadataString);
-	                }
-	            }
-            
+            for (var i = 0; i < inputSelects.length; i++) {
+                var name = $(inputSelects[i]).attr("name");
+                console.log(name);
+                for ( var j in generalMetadata) {
+                	if (inputSelects[i].length == 0 && generalMetadata[j].tagName == name) {
+                		$(inputSelects[i]).append(units[generalMetadata[j].units]);               			               		
+                	}
+                }
+                var itemInSession = getItemEntered("generalMetadata", name);
+                if (itemInSession != null) {
+                    $("select[name=\"" + name + "\"]").val(itemInSession);
+                } else {
+                    var metadataString = buildStringForSession("generalMetadata", name, $("select[name=\"" + name + "\"]").val());
+                    addToSession("generalMetadata", metadataString);
+                    debugger;
+                }
+            }
             
             
             // populate text input elements from sessionStorage

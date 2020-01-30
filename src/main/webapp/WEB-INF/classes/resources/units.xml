@@ -19,10 +19,9 @@
     </unit>
     <unit>
         <name>ISOtopic</name>
-        <value>select one...</value>
+        <value>climatologyMeteorologyAtmosphere</value>
         <value>biota</value>
         <value>boundaries</value>
-        <value>climatologyMeteorologyAtmosphere</value>
         <value>economy</value>
         <value>elevation</value>
         <value>environment</value>
@@ -42,7 +41,7 @@
     </unit>
     <unit>
         <name>KeywordsVocabulary</name>
-        <value>GCMD Science Keywords </value>
+        <value>GCMD Science Keywords</value>
         <value>SeaDataNet Parameter Discovery Vocabulary</value>
         <value>AGU Index Terms</value>
     </unit>

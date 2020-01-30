@@ -164,7 +164,7 @@
             dataset
         </description>
     </globalMetadataItem>
-    <globalMetadataItem>
+<!--    <globalMetadataItem>
         <displayName>Ancillary Keywords</displayName>
         <tagName>ancillary_keywords</tagName>
         <description>ancillary_keywords allows authors to provide any words
@@ -179,7 +179,7 @@
             "false".
         </description>
     </globalMetadataItem>
-    <globalMetadataItem>
+-->    <globalMetadataItem>
         <displayName>References</displayName>
         <tagName>references</tagName>
         <description>Published or web-based references that describe the data
