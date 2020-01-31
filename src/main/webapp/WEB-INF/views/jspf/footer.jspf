@@ -33,19 +33,21 @@
 	hspace="50" 
   />
 </a>
-<a href="<spring:message code="unidata.banner.url"/>"> 
-  <img
-	src="<spring:message code="unidata.banner.path"/>"
-	alt="<spring:message code="unidata.banner.alt"/>" 
-	align="left" 
-	height="60"  />
-</a>
 <a href="<spring:message code="sios.banner.url"/>"> 
   <img
 	src="<spring:message code="sios.banner.path"/>"
 	alt="<spring:message code="sios.banner.alt"/>" 
 	align="left" 
 	height="60"  />
+</a>
+
+<a href="<spring:message code="unidata.banner.url"/>"> 
+  <img
+	src="<spring:message code="unidata.banner.path"/>"
+	alt="<spring:message code="unidata.banner.alt"/>" 
+	align="left" 
+	height="60"  
+	hspace="50"/>
 </a>
 
 <script language="JavaScript">
