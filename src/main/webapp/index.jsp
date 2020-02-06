@@ -42,7 +42,7 @@
             <h1>Rosetta</h1>
             <br />
             <p>
-                <b><i>This specific version of Rosetta has been tailored for NMDC, NordataNet and SIOS.</i></b>
+                <b><i>This specific version of Rosetta has been tailored for NMDC, NorDataNet and SIOS.</i></b>
             </p>
             <p>
                 Welcome to Rosetta, a data transformation tool. Rosetta is a web-based service that
