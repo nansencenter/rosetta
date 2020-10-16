@@ -513,15 +513,19 @@ public abstract class NetcdfFileManager {
                 ncFileWriter.addVariableAttribute(theVar, new Attribute("coordinates", coordAttr));
             }
         }
-
+        //Add necessary attributes to the Coordinate variable.
         if (coordType != null) {
             if (getBuildTimeTriggers().contains(coordType)) {
                 ncFileWriter.addVariableAttribute(theVar, new Attribute("timeRelatedVariable", "true"));
             } else if (coordType.equals("alt")) {
                 ncFileWriter.addVariableAttribute(theVar, new Attribute("axis", "Z"));
+                if (varName.contains("depth")) {
+                	ncFileWriter.addVariableAttribute(theVar, new Attribute("positive", "down"));
+                } else {
+                	ncFileWriter.addVariableAttribute(theVar, new Attribute("positive", "up"));
+                }
             }
         }
-
         return ncFileWriter;
     }
 

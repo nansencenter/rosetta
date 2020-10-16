@@ -66,7 +66,7 @@ public class SingleStationProfile extends NetcdfFileManager {
         String coordVarUnits = getPlatformMetadataMap().get(name + "Units");
 
         String varName = name;
-        System.out.println("Writing:"+varName);
+        //System.out.println("Writing:"+varName);
         if (!name.equals("time")) {
             varName = name.substring(0, 3);
         } else {
@@ -82,7 +82,7 @@ public class SingleStationProfile extends NetcdfFileManager {
         ncFileWriter.addVariableAttribute(theVar, new Attribute("_platformMetadata", "true"));
         ncFileWriter.addVariableAttribute(theVar, new Attribute("long_name", name));
 
-        System.out.println("Wrote coordvar: " + varName);
+        //System.out.println("Wrote coordvar: " + varName);
         return ncFileWriter;
     }
 

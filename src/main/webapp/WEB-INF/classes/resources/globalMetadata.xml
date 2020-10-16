@@ -9,12 +9,10 @@
         </description>
     </globalMetadataItem>
     <globalMetadataItem>
-        <displayName>Summary</displayName>
-        <tagName>summary</tagName>
+        <displayName>License</displayName>
+        <tagName>license</tagName>
         <isRequired>true</isRequired>
-        <description>Longer free-format text describing the dataset. This
-            attribute should allow data discovery for a human reader. A paragraph
-            of up to 100 words is appropriate.
+        <description>A statement describing the data distribution policy
         </description>
     </globalMetadataItem>
     <globalMetadataItem>
@@ -76,10 +74,12 @@
         </description>
     </globalMetadataItem>
     <globalMetadataItem>
-        <displayName>License</displayName>
-        <tagName>license</tagName>
+        <displayName>Summary</displayName>
+        <tagName>summary</tagName>
         <isRequired>true</isRequired>
-        <description>A statement describing the data distribution policy
+        <description>Longer free-format text describing the dataset. This
+            attribute should allow data discovery for a human reader. A paragraph
+            of up to 100 words is appropriate.
         </description>
     </globalMetadataItem>
     <globalMetadataItem>
@@ -98,11 +98,49 @@
             formatting of the data file.
         </description>
     </globalMetadataItem>
+
+<!-- Non Required items -->
     <globalMetadataItem>
         <displayName>Publisher Email</displayName>
         <tagName>publisher_email</tagName>
         <description>Email address of person responsible for metadata and
             formatting of the data file.
+        </description>
+    </globalMetadataItem>
+    <globalMetadataItem>
+        <displayName>Contributor Name</displayName>
+        <tagName>contributor_name</tagName>
+        <description>A semi-colon-separated list of the names of any
+            individuals or institutions that contributed to the creation of this
+            data.
+        </description>
+    </globalMetadataItem>
+    <globalMetadataItem>
+        <displayName>Contributor Email</displayName>
+        <tagName>contributor_email</tagName>
+        <description>The email addresses of any individuals or institutions
+            that contributed to the creation of this data, separated by
+            semi-colons.
+        </description>
+    </globalMetadataItem> 
+    <globalMetadataItem>
+        <displayName>Contributor Role</displayName>
+        <tagName>contributor_role</tagName>
+        <description>The roles of any individuals or institutions that
+            contributed to the creation of this data, separated by semi-colons.
+        </description>
+    </globalMetadataItem>       
+    <globalMetadataItem>
+        <displayName>Publisher Url</displayName>
+        <tagName>publisher_url</tagName>
+        <description>Web address of the institution or of the data publisher.
+        </description>
+    </globalMetadataItem>
+    <globalMetadataItem>
+        <displayName>Related Url</displayName>
+        <tagName>related_url</tagName>
+        <description>The "Related_URL" field specifies links to Internet
+            sites that contain information related to the data
         </description>
     </globalMetadataItem>
     <globalMetadataItem>
@@ -120,12 +158,6 @@
         </description>
     </globalMetadataItem>
     <globalMetadataItem>
-        <displayName>Publisher Url</displayName>
-        <tagName>publisher_url</tagName>
-        <description>Web address of the institution or of the data publisher.
-        </description>
-    </globalMetadataItem>
-    <globalMetadataItem>
         <displayName>Platform</displayName>
         <tagName>platform</tagName>
         <description>The name of the platform used to acquire the data.
@@ -135,6 +167,13 @@
         <displayName>Project</displayName>
         <tagName>project</tagName>
         <description>The scientific project that produced the data.
+        </description>
+    </globalMetadataItem>
+    <globalMetadataItem>
+        <displayName>Citation</displayName>
+        <tagName>citation</tagName>
+        <description>The citation to be used in publications using the
+            dataset
         </description>
     </globalMetadataItem>
     <globalMetadataItem>
@@ -155,13 +194,6 @@
             the global history attribute of an input netCDF file. We recommend
             that each line begin with a timestamp indicating the date and time of
             day that the program was executed.
-        </description>
-    </globalMetadataItem>
-    <globalMetadataItem>
-        <displayName>Citation</displayName>
-        <tagName>citation</tagName>
-        <description>The citation to be used in publications using the
-            dataset
         </description>
     </globalMetadataItem>
 <!--    <globalMetadataItem>
@@ -198,13 +230,6 @@
         <tagName>multimedia_sample</tagName>
         <description>Allows the author to provide information that will
             enable the display of a sample image, movie or sound clip.
-        </description>
-    </globalMetadataItem>
-    <globalMetadataItem>
-        <displayName>Related Url</displayName>
-        <tagName>related_url</tagName>
-        <description>The "Related_URL" field specifies links to Internet
-            sites that contain information related to the data
         </description>
     </globalMetadataItem>
     <globalMetadataItem>
@@ -258,29 +283,7 @@
             project that produced this data.
         </description>
     </globalMetadataItem>
-    <globalMetadataItem>
-        <displayName>Contributor Name</displayName>
-        <tagName>contributor_name</tagName>
-        <description>A semi-colon-separated list of the names of any
-            individuals or institutions that contributed to the creation of this
-            data.
-        </description>
-    </globalMetadataItem>
-    <globalMetadataItem>
-        <displayName>Contributor Email</displayName>
-        <tagName>contributor_email</tagName>
-        <description>The email addresses of any individuals or institutions
-            that contributed to the creation of this data, separated by
-            semi-colons.
-        </description>
-    </globalMetadataItem>
-    <globalMetadataItem>
-        <displayName>Contributor Role</displayName>
-        <tagName>contributor_role</tagName>
-        <description>The roles of any individuals or institutions that
-            contributed to the creation of this data, separated by semi-colons.
-        </description>
-    </globalMetadataItem>
+
     <globalMetadataItem>
         <displayName>Update Interval</displayName>
         <tagName>update_interval</tagName>
