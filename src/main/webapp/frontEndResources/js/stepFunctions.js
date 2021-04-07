@@ -478,7 +478,25 @@ function specifyGeneralMetadata(stepType, stepData) {
                 }
             }
             
-            
+            // populate text Area elements from sessionStorage
+            var stepElement = "#step" + stepData.nextStepIndex + " textarea";
+            var inputElements = $(stepElement);
+            for (var i = 0; i < inputElements.length; i++) {
+                var name = $(inputElements[i]).attr("name");
+                if (name){
+                    var itemInSession = getItemEntered("generalMetadata", name);
+                    if (itemInSession != null) {
+                        $("textarea[name=\"" + name + "\"]").val(itemInSession);
+                        $(inputElements[i]).parent().removeClass("empty")
+                    } else {
+                        $("textarea[name=\"" + name + "\"]").val("");
+                    }
+                } else {
+                    console.log('Error on : ' + stepElement)
+                    console.log('Caused by : ' + name)
+                }
+            }
+                        
             // populate text input elements from sessionStorage
             var stepElement = "#step" + stepData.nextStepIndex + " input[type=\"text\"]";
             var inputElements = $(stepElement);
@@ -621,7 +639,21 @@ function specifyGeneralMetadata(stepType, stepData) {
             // see if we can expose the next button
             checkAndExposeNext("generalMetadata");
         });
-        
+
+
+        //When TextArea has changed.
+        var stepElement = "#step" + stepData + " textarea";
+        $(stepElement).on("focusout", function () {
+            var value = $(this).attr("value");
+            var name = $(this).attr("name");
+            if (value != "") {
+                var metadataString = buildStringForSession("generalMetadata", name, value);
+                addToSession("generalMetadata", metadataString);
+            }
+            // see if we can expose the next button
+            checkAndExposeNext("generalMetadata");
+        });
+
         specifyGeneralMetadata("repopulateStep",{"nextStepIndex":stepData});
     }
 }

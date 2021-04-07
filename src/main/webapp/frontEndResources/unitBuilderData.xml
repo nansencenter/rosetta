@@ -11,20 +11,20 @@
 
     <entry id="temperature">
         <use_prefix>false</use_prefix>
-        <unit>degree_Celsius</unit>
+        <unit>degree_C</unit>
         <unit>degree_Fahrenheit</unit>
-        <unit>degree_Kelvin</unit>
+        <unit>K</unit>
         <unit>degree_Rankien</unit>
     </entry>
 
     <entry id="mass">
-        <unit>gram</unit>
+        <unit>g</unit>
         <unit>pound</unit>
         <unit>atomic_mass_unit</unit>
     </entry>
 
     <entry id="length">
-        <unit>meter</unit>
+        <unit>m</unit>
         <unit>inch</unit>
         <unit>foot</unit>
         <unit>mile</unit>

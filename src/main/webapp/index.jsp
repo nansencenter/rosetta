@@ -75,6 +75,10 @@
         </td>
     </tr>
     <tr>
+    	<td></td>
+    	<td><a href="https://drive.google.com/file/d/1Ss7G2kHZipBWLn28CdZooxDiXLztRQlp/view">Rosetta User Manual</a></td>
+    </tr>
+    <tr>
         <td colspan="2">
             <i>
                 Version : <%=ServerInfoBean.getVersion()%>

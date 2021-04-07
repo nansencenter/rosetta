@@ -6,6 +6,7 @@ import org.apache.log4j.Logger;
 import java.io.File;
 import java.io.IOException;
 import java.text.NumberFormat;
+import java.text.DecimalFormat;
 import java.text.ParseException;
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -677,6 +678,7 @@ public abstract class NetcdfFileManager {
     protected NetcdfFileWriter writeUserVarData(List<List<String>> outerList, NetcdfFileWriter ncFileWriter, Locale locale)
             throws IOException, InvalidRangeException, ParseException {
         NumberFormat nFormat = NumberFormat.getInstance(locale);
+    	//DecimalFormat nFormat = (DecimalFormat) DecimalFormat.getInstance(locale);
         for (String var : getAllVarNames()) {
             Variable theVar = ncFileWriter.findVariable(var);
             if (theVar != null) {
@@ -691,7 +693,8 @@ public abstract class NetcdfFileManager {
                                 new ArrayFloat.D1(outerList.size());
                         int i = 0;
                         for (List<String> innerList : outerList) {
-                            Number number = nFormat.parse(innerList.get(varIndex));
+                            Number number = nFormat.parse(innerList.get(varIndex).toUpperCase());
+                        	//Number number = nFormat.parse("1.234e-7".toUpperCase());
                             float f = number.floatValue();
                             vals.set(i, f);
                             i++;
@@ -704,7 +707,7 @@ public abstract class NetcdfFileManager {
                         for (List<String> innerList : outerList) {
                             int f = Integer.parseInt(
                                     innerList.get(
-                                            varIndex));
+                                            varIndex).toUpperCase());
                             vals.set(i, f);
                             i++;
                         }

@@ -33,7 +33,7 @@
     <entry id="missing_value" displayName="Missing Value">
         <type>non-coordinate</type>
         <necessity>required</necessity>
-        <helptip>How are missing values represented in your dataset (example: -999)</helptip>
+        <helptip>How are missing values represented in your dataset (example: -999). This must be a number for float and int fields.</helptip>
     </entry>
     <entry id="_sampleHeight" displayName="Instrument Height (negative for depths)">
         <type>non-coordinate</type>

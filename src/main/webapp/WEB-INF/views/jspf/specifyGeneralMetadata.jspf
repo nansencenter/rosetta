@@ -10,30 +10,38 @@
                     obj["tagName"] = "<c:out value="${globalMetadataItem.tagName}" />";
                     obj["displayName"] = "<c:out value="${globalMetadataItem.displayName}" />";
                     <c:choose>
-                    <c:when test="${globalMetadataItem.isRequired != null}">
-                    obj["isRequired"] = true;
-                    </c:when>
-                    <c:otherwise>
-                    obj["isRequired"] = false;
-                    </c:otherwise>
+	                    <c:when test="${globalMetadataItem.isRequired != null}">
+		                    obj["isRequired"] = true;
+	                    </c:when>
+	                    <c:otherwise>
+		                    obj["isRequired"] = false;
+	                    </c:otherwise>
                     </c:choose>
                     <c:choose>
-                    <c:when test="${globalMetadataItem.units != null}">
-                    obj["units"] = "<c:out value="${globalMetadataItem.units.replaceAll(newLineChar,'')}" />";
-                    console.log("obj units")
-                    console.log(obj["units"])
-                    </c:when>
-                    <c:otherwise>
-                    obj["units"] = false;
-                    </c:otherwise>
+	                    <c:when test="${globalMetadataItem.units != null}">
+		                    obj["units"] = "<c:out value="${globalMetadataItem.units.replaceAll(newLineChar,'')}" />";
+		                    console.log("obj units")
+		                    console.log(obj["units"])
+	                    </c:when>
+	                    <c:otherwise>
+		                    obj["units"] = false;
+	                    </c:otherwise>
                     </c:choose>
+                    <c:choose>
+	                    <c:when test="${globalMetadataItem.multiline != null}">
+		                    obj["multiline"] = true;
+	                    </c:when>
+	                    <c:otherwise>
+		                    obj["multiline"] = false;
+	                    </c:otherwise>
+                    </c:choose>                    
                     generalMetadata.push(obj);
                 </script>
                 <li>
                     <label>
                         <c:choose>
                             <c:when test="${globalMetadataItem.isRequired}">
-                                *
+                               <span class="importantfields"> * </span>
                             </c:when>
                         </c:choose>
                         <c:out value="${globalMetadataItem.displayName}"/>
@@ -46,15 +54,22 @@
                         <br/>
                         <c:choose>
                             <c:when test="${globalMetadataItem.units != null}">
-
                                 <select name="<c:out value="${globalMetadataItem.tagName}" />" >
                                 </select>
                             </c:when>
                             <c:otherwise>
-                                <input type='checkbox' name="${globalMetadataItem.tagName}"> is a regex
-                                <br/>
-                                <input type="text" name="<c:out value="${globalMetadataItem.tagName}" />"
-                                    value=""/>
+                                <c:choose>
+									<c:when test="${globalMetadataItem.multiline}">
+										<textarea rows="3" cols="20" name="<c:out value="${globalMetadataItem.tagName}" />" form="FORM"> 
+										</textarea>
+									</c:when>
+									<c:otherwise>
+		                                <input type='checkbox' name="${globalMetadataItem.tagName}"> is a regex
+	    	                            <br/>
+	        	                        <input type="text" name="<c:out value="${globalMetadataItem.tagName}" />"
+	            	                        value=""/>
+	                                </c:otherwise>
+                                </c:choose>
                             </c:otherwise>
                         </c:choose>
                         

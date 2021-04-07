@@ -81,6 +81,7 @@
             attribute should allow data discovery for a human reader. A paragraph
             of up to 100 words is appropriate.
         </description>
+        <multiline>true</multiline>
     </globalMetadataItem>
     <globalMetadataItem>
         <displayName>Processing Level</displayName>
@@ -89,6 +90,7 @@
         <description>Level of processing and quality control applied to data.
             Preferred values are listed in reference Table 3.
         </description>
+        <multiline>true</multiline>
     </globalMetadataItem>
     <globalMetadataItem>
         <displayName>Publisher Name</displayName>
@@ -151,16 +153,18 @@
         </description>
     </globalMetadataItem>
     <globalMetadataItem>
-        <displayName>Data Set Progress</displayName>
-        <tagName>data_set_progress</tagName>
-        <description>Describes the production status of the data set
-            regarding its completeness.
-        </description>
-    </globalMetadataItem>
-    <globalMetadataItem>
         <displayName>Platform</displayName>
         <tagName>platform</tagName>
         <description>The name of the platform used to acquire the data.
+        </description>
+    </globalMetadataItem>
+    <globalMetadataItem>
+        <displayName>Source</displayName>
+        <tagName>source</tagName>
+        <description>The method of production of the original data. If it was
+            model-generated, source should name the model and its version, as
+            specifically as could be useful. If it is observational, source
+            should characterize it (e.g., "surface observation" or "radiosonde").
         </description>
     </globalMetadataItem>
     <globalMetadataItem>
@@ -175,15 +179,7 @@
         <description>The citation to be used in publications using the
             dataset
         </description>
-    </globalMetadataItem>
-    <globalMetadataItem>
-        <displayName>Source</displayName>
-        <tagName>source</tagName>
-        <description>The method of production of the original data. If it was
-            model-generated, source should name the model and its version, as
-            specifically as could be useful. If it is observational, source
-            should characterize it (e.g., "surface observation" or "radiosonde").
-        </description>
+        <multiline>true</multiline>
     </globalMetadataItem>
     <globalMetadataItem>
         <displayName>History</displayName>
@@ -194,6 +190,13 @@
             the global history attribute of an input netCDF file. We recommend
             that each line begin with a timestamp indicating the date and time of
             day that the program was executed.
+        </description>
+    </globalMetadataItem>
+    <globalMetadataItem>
+        <displayName>Data Set Progress</displayName>
+        <tagName>data_set_progress</tagName>
+        <description>Describes the production status of the data set
+            regarding its completeness.
         </description>
     </globalMetadataItem>
 <!--    <globalMetadataItem>
@@ -211,7 +214,8 @@
             "false".
         </description>
     </globalMetadataItem>
--->    <globalMetadataItem>
+-->
+    <globalMetadataItem>
         <displayName>References</displayName>
         <tagName>references</tagName>
         <description>Published or web-based references that describe the data
@@ -225,11 +229,19 @@
             to produce it.
         </description>
     </globalMetadataItem>
-    <globalMetadataItem>
+<!--    <globalMetadataItem>
         <displayName>Multimedia Sample</displayName>
         <tagName>multimedia_sample</tagName>
         <description>Allows the author to provide information that will
             enable the display of a sample image, movie or sound clip.
+        </description>
+    </globalMetadataItem>
+-->
+    <globalMetadataItem>
+        <displayName>Acknowledgement</displayName>
+        <tagName>acknowledgement</tagName>
+        <description>A place to acknowledge various types of support for the
+            project that produced this data.
         </description>
     </globalMetadataItem>
     <globalMetadataItem>
@@ -276,14 +288,6 @@
             e.g. PT5M for 5 minutes, PT1H for hourly, PT30S for 30 seconds.
         </description>
     </globalMetadataItem>
-    <globalMetadataItem>
-        <displayName>Acknowledgement</displayName>
-        <tagName>acknowledgement</tagName>
-        <description>A place to acknowledge various types of support for the
-            project that produced this data.
-        </description>
-    </globalMetadataItem>
-
     <globalMetadataItem>
         <displayName>Update Interval</displayName>
         <tagName>update_interval</tagName>

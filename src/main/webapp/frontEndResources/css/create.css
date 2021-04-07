@@ -157,6 +157,14 @@ ul li label img {
     width: 40%;
 }
 
+#step6 .importantfields {
+	color	:	#F00;
+}
+
+#step6 input[type="text"] {
+	width	:	90%;
+}
+
 /* step 7 */
 #step7 ul li {
     width: 100%;

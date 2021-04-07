@@ -90,10 +90,10 @@ function validateUploadedFile(file, currentStep) {
         var isZip = zipPattern.test(fileExt[0]);
         var isFile = filePattern.test(file.type);
         var isEcs = eolCompositeSountingPattern.test(fileExt[0]);
-        var maxUploadSize = 10000000000;
+        var maxUploadSize = 2097152;
         if (file.size > maxUploadSize) {
             $(errorLabel).text(
-                "Error! File size should be less then " + (maxUploadSize / 1024 / 1000).toFixed(2)
+                "Error! File size should be less then " + (maxUploadSize / 1024 / 1024).toFixed(2)
                 + " MB");
             $("#upload").addClass("hideMe");
             boolean = false;
@@ -139,11 +139,11 @@ function validateUploadedTemplateFile(file, currentStep) {
     if (fileExt){
         // test valid regex patterns
         var isTemplate = templatePattern.test(fileExt[0]);
-        var maxUploadSize = 10000000000;
+        var maxUploadSize = 2097152;
 
         if (file.size > maxUploadSize) {
             $(errorLabel).text(
-                "Error! File size should be less then " + (maxUploadSize / 1024 / 1000).toFixed(2)
+                "Error! File size should be less then " + (maxUploadSize / 1024 / 1024).toFixed(2)
                 + " MB");
             $("#uploadTemplate").addClass("hideMe");
             boolean = false;
@@ -164,7 +164,6 @@ function validateUploadedTemplateFile(file, currentStep) {
         $("#upload").addClass("hideMe"); 
         boolean = false;
     }
-    return boolean;
     return boolean;
 }
 
