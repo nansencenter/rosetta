@@ -22,6 +22,9 @@
             padding-top: 25pt;
             width: 200px;
         }
+        #about {
+        	font-size : 50%
+        }
     </style>
     <title>Rosetta</title>
 </head>
@@ -78,15 +81,20 @@
     	<td></td>
     	<td><a href="https://drive.google.com/file/d/1Ss7G2kHZipBWLn28CdZooxDiXLztRQlp/view">Rosetta User Manual</a></td>
     </tr>
+    <tr><td colspan=2><hr></td></tr>
     <tr>
-        <td colspan="2">
+        <td id="about" colspan="2">
             <i>
+                <br>
                 Version : <%=ServerInfoBean.getVersion()%>
                 <br>
                 Build Date: <%=ServerInfoBean.getBuildDate()%>
             </i>
         </td>
     </tr>
+
+
+
 </table>
 </body>
 </html>
