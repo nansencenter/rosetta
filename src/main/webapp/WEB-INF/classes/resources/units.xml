@@ -45,4 +45,11 @@
         <value>SeaDataNet Parameter Discovery Vocabulary</value>
         <value>AGU Index Terms</value>
     </unit>
+    <unit>
+        <name>PublisherType</name>
+        <value>person</value>
+        <value>group</value>
+        <value>instittion</value>
+        <value>position</value>
+    </unit>    
 </units>

@@ -110,6 +110,97 @@
         </description>
     </globalMetadataItem>
     <globalMetadataItem>
+        <displayName>Publisher Url</displayName>
+        <tagName>publisher_url</tagName>
+        <description>Web address of the institution or of the data publisher.
+        </description>
+    </globalMetadataItem>
+    <globalMetadataItem>
+        <displayName>Publisher Type</displayName>
+        <tagName>publisher_type</tagName>
+        <description>Type of the data publisher. Typical person or institution.
+        </description>
+        <units>PublisherType</units>
+    </globalMetadataItem>
+    <globalMetadataItem>
+        <displayName>Publisher Institution</displayName>
+        <tagName>publisher_institution</tagName>
+        <description>The data publisher's institution.
+        </description>
+    </globalMetadataItem>
+    <globalMetadataItem>
+        <displayName>Project</displayName>
+        <tagName>project</tagName>
+        <description>The scientific project that produced the data.
+        </description>
+    </globalMetadataItem>
+    <globalMetadataItem>
+        <displayName>Project ID</displayName>
+        <tagName>project_id</tagName>
+        <description>The project number or id, can be multiple project numbers seperated with comma.
+        </description>
+    </globalMetadataItem>
+    <globalMetadataItem>
+        <displayName>Funding Agency</displayName>
+        <tagName>funding_agency</tagName>
+        <description>The agency responsible for funding the project.
+        </description>
+    </globalMetadataItem>
+    <globalMetadataItem>
+        <displayName>Project Lead</displayName>
+        <tagName>project_lead</tagName>
+        <description>The overall lead person for the project.
+        </description>
+    </globalMetadataItem>
+    <globalMetadataItem>
+        <displayName>Project Lead Email</displayName>
+        <tagName>project_lead_email</tagName>
+        <description>The email address of the project lead.
+        </description>
+    </globalMetadataItem>
+    <globalMetadataItem>
+        <displayName>Prinsipal Investigator</displayName>
+        <tagName>principal_investigator</tagName>
+        <description>The principal investigator on the project.
+        </description>
+    </globalMetadataItem>
+    <globalMetadataItem>
+        <displayName>Prinsipal Investigator Email</displayName>
+        <tagName>principal_investigator_email</tagName>
+        <description>Email address of the principal investigator.
+        </description>
+    </globalMetadataItem>
+    <globalMetadataItem>
+        <displayName>Investigator</displayName>
+        <tagName>investigator</tagName>
+        <description>The investigator for the dataset.
+        </description>
+    </globalMetadataItem>
+    <globalMetadataItem>
+        <displayName>Investigator Email</displayName>
+        <tagName>investigator_email</tagName>
+        <description>Email address of the investigator.
+        </description>
+    </globalMetadataItem>
+    <globalMetadataItem>
+        <displayName>Cruise ID</displayName>
+        <tagName>cruise_id</tagName>
+        <description>The cruise id for this dataset.
+        </description>
+    </globalMetadataItem>    
+    <globalMetadataItem>
+        <displayName>Cruise Responsible</displayName>
+        <tagName>cruise_responsible</tagName>
+        <description>The cruise responsible for this dataset.
+        </description>
+    </globalMetadataItem>
+    <globalMetadataItem>
+        <displayName>Cruise Responsible Email</displayName>
+        <tagName>cruise_responsible_email</tagName>
+        <description>Email address of the cruise responsible.
+        </description>
+    </globalMetadataItem>
+    <globalMetadataItem>
         <displayName>Contributor Name</displayName>
         <tagName>contributor_name</tagName>
         <description>A semi-colon-separated list of the names of any
@@ -132,12 +223,6 @@
             contributed to the creation of this data, separated by semi-colons.
         </description>
     </globalMetadataItem>       
-    <globalMetadataItem>
-        <displayName>Publisher Url</displayName>
-        <tagName>publisher_url</tagName>
-        <description>Web address of the institution or of the data publisher.
-        </description>
-    </globalMetadataItem>
     <globalMetadataItem>
         <displayName>Related Url</displayName>
         <tagName>related_url</tagName>
@@ -165,31 +250,6 @@
             model-generated, source should name the model and its version, as
             specifically as could be useful. If it is observational, source
             should characterize it (e.g., "surface observation" or "radiosonde").
-        </description>
-    </globalMetadataItem>
-    <globalMetadataItem>
-        <displayName>Project</displayName>
-        <tagName>project</tagName>
-        <description>The scientific project that produced the data.
-        </description>
-    </globalMetadataItem>
-    <globalMetadataItem>
-        <displayName>Citation</displayName>
-        <tagName>citation</tagName>
-        <description>The citation to be used in publications using the
-            dataset
-        </description>
-        <multiline>true</multiline>
-    </globalMetadataItem>
-    <globalMetadataItem>
-        <displayName>History</displayName>
-        <tagName>history</tagName>
-        <description>Provides an audit trail for modifications to the
-            original data. Well-behaved generic netCDF filters will automatically
-            append their name and the parameters with which they were invoked to
-            the global history attribute of an input netCDF file. We recommend
-            that each line begin with a timestamp indicating the date and time of
-            day that the program was executed.
         </description>
     </globalMetadataItem>
     <globalMetadataItem>
@@ -223,20 +283,13 @@
         </description>
     </globalMetadataItem>
     <globalMetadataItem>
-        <displayName>Comment</displayName>
-        <tagName>comment</tagName>
-        <description>Miscellaneous information about the data or methods used
-            to produce it.
+        <displayName>Citation</displayName>
+        <tagName>citation</tagName>
+        <description>The citation to be used in publications using the
+            dataset
         </description>
+        <multiline>true</multiline>
     </globalMetadataItem>
-<!--    <globalMetadataItem>
-        <displayName>Multimedia Sample</displayName>
-        <tagName>multimedia_sample</tagName>
-        <description>Allows the author to provide information that will
-            enable the display of a sample image, movie or sound clip.
-        </description>
-    </globalMetadataItem>
--->
     <globalMetadataItem>
         <displayName>Acknowledgement</displayName>
         <tagName>acknowledgement</tagName>
@@ -281,6 +334,24 @@
             geospatial_vertical_units.
         </description>
     </globalMetadataItem>
+    <globalMetadataItem>
+        <displayName>Comment</displayName>
+        <tagName>comment</tagName>
+        <description>Miscellaneous information about the data or methods used
+            to produce it.
+        </description>
+    </globalMetadataItem>    
+    <globalMetadataItem>
+        <displayName>History</displayName>
+        <tagName>history</tagName>
+        <description>Provides an audit trail for modifications to the
+            original data. Well-behaved generic netCDF filters will automatically
+            append their name and the parameters with which they were invoked to
+            the global history attribute of an input netCDF file. We recommend
+            that each line begin with a timestamp indicating the date and time of
+            day that the program was executed.
+        </description>
+    </globalMetadataItem>    
     <globalMetadataItem>
         <displayName>Time Coverage Resolution</displayName>
         <tagName>time_coverage_resolution</tagName>

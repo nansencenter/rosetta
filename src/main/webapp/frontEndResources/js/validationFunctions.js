@@ -90,7 +90,7 @@ function validateUploadedFile(file, currentStep) {
         var isZip = zipPattern.test(fileExt[0]);
         var isFile = filePattern.test(file.type);
         var isEcs = eolCompositeSountingPattern.test(fileExt[0]);
-        var maxUploadSize = 2097152;
+        var maxUploadSize = 10*2**20;
         if (file.size > maxUploadSize) {
             $(errorLabel).text(
                 "Error! File size should be less then " + (maxUploadSize / 1024 / 1024).toFixed(2)
@@ -102,7 +102,7 @@ function validateUploadedFile(file, currentStep) {
             $("#upload").addClass("hideMe");
             boolean = false;
         } else {
-            // handle special cases first, then as last check see if it of type "file:
+            // handle special cases first, then as last check see if it is of type "file:
             if (isExcel) {
                 $(".jw-step:eq(" + currentStep + ")").find("#notice").empty().append(
                     "Notice: Any date formatted cells in your spreadsheet will be reformatted in 'seconds since 1970-01-01'!");
@@ -139,7 +139,7 @@ function validateUploadedTemplateFile(file, currentStep) {
     if (fileExt){
         // test valid regex patterns
         var isTemplate = templatePattern.test(fileExt[0]);
-        var maxUploadSize = 2097152;
+        var maxUploadSize = 2*2**20;
 
         if (file.size > maxUploadSize) {
             $(errorLabel).text(

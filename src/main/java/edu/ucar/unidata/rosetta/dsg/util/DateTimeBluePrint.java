@@ -93,7 +93,7 @@ public class DateTimeBluePrint {
                 numObs = (int) numFullDateTimeObs;
                 dateTimeArray = new long[numObs];
                 dateTimeIsoString = new String[numObs];
-                for (int ob = 0; ob < (int) numDateObs; ob++) {
+                for (int ob = 0; ob < (int) numObs; ob++) {
                     dateTimeStr = fullDateTimeArray.getString(ob);
                     dateTime = fmt.parse(dateTimeStr);
                     dateTimeArray[ob] = dateTime.getMillis() / 1000l; // make seconds instead of milliseconds
@@ -149,7 +149,7 @@ public class DateTimeBluePrint {
                 Variable theVar2 = ncFileWriter.addVariable(null, dateTimeVarName, DataType.INT, dtDims);
                 ncFileWriter.addVariableAttribute(theVar2, new Attribute("units", "seconds since "+zeroDate));
                 ncFileWriter.addVariableAttribute(theVar2, new Attribute("standard_name", "time"));
-                ncFileWriter.addVariableAttribute(theVar2, new Attribute("comment", "Created by Rosetta"));
+                ncFileWriter.addVariableAttribute(theVar2, new Attribute("comment", "As Created by Rosetta"));
             }
         }
 
