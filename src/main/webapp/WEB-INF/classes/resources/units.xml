@@ -49,7 +49,7 @@
         <name>PublisherType</name>
         <value>person</value>
         <value>group</value>
-        <value>instittion</value>
+        <value>institution</value>
         <value>position</value>
     </unit>    
 </units>
