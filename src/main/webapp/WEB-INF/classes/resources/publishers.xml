@@ -9,4 +9,7 @@
         <!--pubUrl>cadis.prototype.ucar.edu</pubUrl-->
         <pubUrl>www.aoncadis.org</pubUrl>
     </publisher>
+    <publisher>
+    	<pubName>NERSC Thredds</pubName><!--<puburl>nersc.no</puburl>--><pubUrl>thredds.nersc.no</pubUrl>
+    </publisher>
 </publishers>

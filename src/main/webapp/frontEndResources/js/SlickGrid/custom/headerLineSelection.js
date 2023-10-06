@@ -106,10 +106,12 @@ function bindGridHeaderLineSelectionEvent(grid, step) {
         $("#step" + step + " #noHeaderLines").attr('checked', false);
 
         // Stash the user input in the session.
-        addToSession("headerLineNumbers", grid.getSelectedRows().sort(function (a, b) {
+        var selected_as_headerlines = all_headerlines(grid.getSelectedRows())
+        addToSession("headerLineNumbers", selected_as_headerlines);
+/**        addToSession("headerLineNumbers", grid.getSelectedRows().sort(function (a, b) {
             return a - b
         }));
-
+*/
         // Activate the jWizard next button so the user can proceed.
         $("#faux").remove();
         $(".jw-button-next").removeClass("hideMe");
@@ -147,4 +149,13 @@ function bindNoHeaderLinesAvailableSelectionEvent(grid, step) {
 
     });
 
+}
+
+function all_headerlines(arr) {
+	var maxline = Math.max.apply(null, arr);
+	var headerlines = [];
+	for (var i=0; i <= maxline; i++) {
+		headerlines.push(i);
+	}
+	return headerlines;
 }

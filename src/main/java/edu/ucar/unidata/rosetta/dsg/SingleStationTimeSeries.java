@@ -103,7 +103,7 @@ public class SingleStationTimeSeries extends NetcdfFileManager {
 
         theVar.addAttribute(new Attribute("cf_role", getMyCfRole()));
         theVar.addAttribute(new Attribute("long_name", "station name"));
-        theVar.addAttribute(new Attribute("standard_name", "station_name"));
+        theVar.addAttribute(new Attribute("standard_name", "platform_name"));
         theVar.addAttribute(new Attribute("_platformMetadata", "true"));
 
         return ncFileWriter;
