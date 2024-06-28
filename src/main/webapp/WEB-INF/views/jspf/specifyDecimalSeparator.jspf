@@ -1,2 +1,2 @@
-<input type="radio" name="decimalSeparator" id="decimalSeparatorPoint" value="Point" checked="checked"/>Point<br>
-<input type="radio" name="decimalSeparator" id="decimalSeparatorComma" value="Comma"/>Comma
+<input type="radio" name="decimalSeparator" class="decimalSeparator" id="decimalSeparatorPoint" value="Point" checked="checked"/>Point<br>
+<input type="radio" name="decimalSeparator" class="decimalSeparator" id="decimalSeparatorComma" value="Comma"/>Comma

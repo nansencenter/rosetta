@@ -335,7 +335,7 @@ function specifyDelimiters(stepType, stepData) {
                 $(".jw-button-next").removeClass("hideMe");
             }
             if (getFromSession("decimalSeparator")) {
-                $("#step3 #decimalSeparator").each(function () {
+                $("#step3 .decimalSeparator").each(function () {
                     if (getFromSession("decimalSeparator").search($(this).val()) >= 0) {
                         $(this).attr("checked", true);
                     }
