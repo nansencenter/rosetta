@@ -275,11 +275,12 @@ function specifyHeaderLines(stepType, stepData) {
                    drawGrid(data, "2")
                },
                "text");
-
+        
         // If we land on this page and user has already enter something
         // (e.g., clicked previous or used the menu to navigate)
         // Don't hide the 'Next' button
         if ((stepData.type == "previous") || (stepData.type == "next")) {
+        	$(".jw-button-previous").addClass("hideMe");
             if (getFromSession("headerLineNumbers")) {
                 $("#faux").remove();
                 $(".jw-button-next").removeClass("hideMe");
@@ -294,6 +295,7 @@ function specifyHeaderLines(stepType, stepData) {
 }
 
 function specifyDelimiters(stepType, stepData) {
+	$(".jw-button-previous").removeClass("hideMe");
     if (stepType == "stepValidation") {
         if (stepData.type == "next") {
             error =
@@ -312,7 +314,7 @@ function specifyDelimiters(stepType, stepData) {
     } else if (stepType == "repopulateStep") {
         if ((stepData.type == "previous") || (stepData.type == "next")) {
             if (getFromSession("delimiters")) {
-                $("#step3 #delimiter").each(function () {
+                $("#step3 .delimiter").each(function () {
                     if (getFromSession("delimiters").search($(this).val()) >= 0) {
                         if ($(this).val() == "Other") {
                             if (!getFromSession("otherDelimiter")) {
@@ -474,7 +476,7 @@ function specifyGeneralMetadata(stepType, stepData) {
                 } else {
                     var metadataString = buildStringForSession("generalMetadata", name, $("select[name=\"" + name + "\"]").val());
                     addToSession("generalMetadata", metadataString);
-                    debugger;
+                    //debugger;
                 }
             }
             
@@ -551,8 +553,12 @@ function specifyGeneralMetadata(stepType, stepData) {
         }
     } else if (stepType == "stepFunctions") {
         var customAttDiv = $("#containerForCustomAttributes");
+        // Add button for custom variables and button for PDF Metadata file import.
         customAttDiv.after("<button type='button' onclick='addCustomGeneralAttribute()'>"
-                + "Add custom attribute</button>");
+                + "Add custom attribute</button><p />"
+                + "<p>if you have a filled in version of this <a href='https://drive.google.com/file/d/1xeMNAjI1v-bjTQQEyAnnB-KNrboxEQzS/view?usp=drive_link'>PDF form</a>,"
+                + "you can use it to fill in the fields here:"
+                + "<input type='file' id='PDFinputButton' name='PDFInputFile' accept='.pdf' onchange='fillValuesFromPDF(this.files)'> </p>");
         var stepElement = "#step" + stepData + " input[type='text']";
         var stepCheck = ".jw-step:eq(" + stepData + ")";
         $(stepElement).on("focusout", function () {
@@ -629,7 +635,7 @@ function specifyGeneralMetadata(stepType, stepData) {
         var stepElementSelect = "#step" + stepData + " select";
         // grab initial values for the select elements
 //        $(stepElementSelect).each(function () {
-        $(stepElementSelect).on("change", function () {
+        $(stepElementSelect).on("blur", function () {
             if ($(this).attr("value") != "") {
                 // add to the session
                 var metadataString = buildStringForSession("generalMetadata", $(this).attr("name"),
@@ -657,6 +663,97 @@ function specifyGeneralMetadata(stepType, stepData) {
         specifyGeneralMetadata("repopulateStep",{"nextStepIndex":stepData});
     }
 }
+
+function fillValuesFromPDF(PDFselectedFileList){
+	  //Create a FileReader object
+      let fr = new FileReader();
+      //Get the first file (only file since input does not specify multiple)
+      fr.readAsArrayBuffer(PDFselectedFileList[0]);
+      //Call PDF reader function when file is loaded
+      fr.onload = function() {
+          readForm(fr.result);
+          //console.log(PDFselectedFileList[0]);
+      };
+      // Write an error message to console if fileloading fails.
+      fr.onerror = function() {
+          console.log(fr.error);
+      };
+    //});
+}
+
+async function readForm(formPdfBytes) {
+	// import PDFLib
+	const { PDFDocument } = PDFLib;
+    // Load a PDF with form fields
+    const pdfDoc = await PDFDocument.load(formPdfBytes);
+
+    // Get the form containing all the fields
+    const form = pdfDoc.getForm();
+    // Couple Field names in PDF with field names and types in Global Metadata 
+    pForm = {
+    	    'title':['title','input'],
+    	    'license':['license','input'],
+    	    'naming_authority':['naming_authority','input'],
+    	    'iso_topic_category':['iso_topic_category','select'],
+    	    'keywords_vocabulary':['keywords_vocabulary','select'],
+    	    'keywords':['keywords','input'],
+    	    'data_assembly_center':['data_assembly_center','input'],
+    	    'summary':['summary','textarea'],
+    	    'processing_level':['processing_level','textarea'],
+    	    'publisher_name':['publisher_name','input'],
+    	    'publisher_email':['publisher_email','input'],
+    	    'publisher_url':['publisher_url','input'],
+    	    'publisher_type':['publisher_type','select'],
+    	    'publisher_institution':['publisher_institution','input'],
+    	    'project':['project','input'],
+    	    'project_id':['project_id','input'],
+    	    'funding_agency':['funding_agency','input'],
+    	    'project_lead':['project_lead','input'],
+    	    'project_lead_email':['project_lead_email','input'],
+    	    'principal_investigator':['principal_investigator','input'],
+    	    'principal_investigator_email':['principal_investigator_email','input'],
+    	    'investigator':['investigator','input'],
+    	    'investigator_email':['investigator_email','input'],
+    	    'cruise_id':['cruise_id','input'],
+    	    'cruise_responsible':['cruise_responsible','input'],
+    	    'cruise_responsible_email':['cruise_responsible_email','input'],
+    	    'contributor_name':['contributor_name','input'],
+    	    'contributor_email':['contributor_email','input'],
+    	    'contributor_role':['contributor_role','input'],
+    	    'data_set_language':['data_set_language','input'],
+    	    'platform':['platform','input'],
+    	    'source':['source','input'],
+    	    'citation':['citation','textarea'],
+    	    'acknowledgement':['acknowledgement','input'],
+    	    'area':['area','input']
+    }
+    // Read the attributed from file and fill in the form based on type of field.
+    for (tfield in pForm){
+    	try{
+	    	switch (pForm[tfield][1]){
+	    	case 'input':
+	    		$("#" + tfield).val(form.getTextField(pForm[tfield][0]).getText());
+	    		$("#" + tfield).parent().attr("class","");
+	    		$("#" + tfield).focusout();
+	    		break;
+	    	case 'select':
+	    		$("select[name=\"" + tfield + "\"]").val(form.getDropdown(pForm[tfield][0]).getSelected());
+	    		$("select[name=\"" + tfield + "\"]").parent().removeClass("empty");
+	    		$("select[name=\"" + tfield + "\"]").blur();
+	    		break;
+	    	case 'textarea':
+	    		$("textarea[name=\"" + tfield + "\"]").val(form.getTextField(pForm[tfield][0]).getText());
+	    		$("textarea[name=\"" + tfield + "\"]").parent().removeClass("empty");
+	    		$("textarea[name=\"" + tfield + "\"]").focusout();
+	    		break;
+	    	} 
+    	} catch (error){
+    		console.error(error + tfield + ' is missing from PDF');
+    	}
+    }
+    $("#id").focus();
+}
+
 var nCustomAttributes = 0;
 function addCustomGeneralAttribute() {
     var id = "customAttribute" + nCustomAttributes;

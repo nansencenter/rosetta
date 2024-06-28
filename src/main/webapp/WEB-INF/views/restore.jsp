@@ -16,7 +16,6 @@
         $.metadata.setType("attr", "validate");
     </script>
 </head>
-
 <body>
 <h1><spring:message code="global.title"/></h1>
 <form id="FORM" action="/rosetta/upload" method="POST" enctype="multipart/form-data">

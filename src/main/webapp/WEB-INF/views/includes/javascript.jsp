@@ -50,4 +50,7 @@
 <script type="text/javascript"
         src="resources/js/SlickGrid/custom/variableSpecification.js"></script>
 
+<!-- PDF-lib and FileReader -->
+<script src="https://unpkg.com/pdf-lib@1.11.0"></script>
+<script src="https://unpkg.com/downloadjs@1.4.7"></script>
 

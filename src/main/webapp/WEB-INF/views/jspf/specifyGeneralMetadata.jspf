@@ -60,13 +60,13 @@
                             <c:otherwise>
                                 <c:choose>
 									<c:when test="${globalMetadataItem.multiline}">
-										<textarea rows="3" cols="20" name="<c:out value="${globalMetadataItem.tagName}" />" form="FORM"> 
+										<textarea rows="3" cols="20" name="<c:out value="${globalMetadataItem.tagName}" />" id="<c:out value="${globalMetadataItem.tagName}" />" form="FORM"> 
 										</textarea>
 									</c:when>
 									<c:otherwise>
 		                                <input type='checkbox' name="${globalMetadataItem.tagName}"> is a regex
 	    	                            <br/>
-	        	                        <input type="text" name="<c:out value="${globalMetadataItem.tagName}" />"
+	        	                        <input type="text" name="<c:out value="${globalMetadataItem.tagName}" />" id="<c:out value="${globalMetadataItem.tagName}" />"
 	            	                        value=""/>
 	                                </c:otherwise>
                                 </c:choose>
