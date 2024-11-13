@@ -30,6 +30,7 @@ import ucar.ma2.InvalidRangeException;
 import ucar.nc2.Attribute;
 import ucar.nc2.Dimension;
 import ucar.nc2.NetcdfFileWriter;
+import ucar.nc2.NetcdfFile;
 import ucar.nc2.Variable;
 
 /**
@@ -755,7 +756,29 @@ public abstract class NetcdfFileManager {
 
         return dsgWriters;
     }
-
+    
+    // Function for gettting the ncdump -h info from the generated NetCDF file.
+    public static String checkNetCDF(String ncFilePath) {
+    	Boolean success = new File(ncFilePath).exists();
+    	String ncinfo = "";
+    	if (!success) {
+    		logger.error("Error!  the netcdf file " + ncFilePath + "was not created.");
+            return "Error!  the netcdf file was not created.";
+    	}
+    	try (NetcdfFile ncdump = NetcdfFile.open(ncFilePath)){
+    		ncinfo = ncdump.toString();
+    		int index = ncinfo.indexOf("\n");
+    		//String[] lncinfo = ncinfo.split("\n");
+    		//ncinfo = lncinfo.
+    		ncinfo  = ncinfo.substring(index +1);
+    		//ncinfo.replaceAll("/\n/g", "<br/>");
+    	} catch (IOException e) {
+    		e.printStackTrace();
+    		ncinfo =  "Error! File Not read";
+    	}
+    	return ncinfo;
+    }
+    
     public String createNetcdfFile(AsciiFile file, List<List<String>> parseFileData, List<String> header, String downloadDirPath) throws IOException {
         try {
             String ncFilePath = downloadDirPath + File.separator + FilenameUtils.removeExtension(file.getFileName()) + ".nc";

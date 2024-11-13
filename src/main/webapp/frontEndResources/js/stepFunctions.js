@@ -266,7 +266,7 @@ function specifyHeaderLines(stepType, stepData) {
             } else {
                 return error;
             }
-            return false
+            return false;
         }
     } else if (stepType == "repopulateStep") {
         $.post("parse",

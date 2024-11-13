@@ -28,6 +28,7 @@ import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
+import java.io.FileWriter;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
@@ -430,10 +431,24 @@ public class TemplateController implements HandlerExceptionResolver {
                     String fileOut = FilenameUtils.concat(downloadDir,
                             FilenameUtils.removeExtension(file.getFileName())
                                     + ".nc");
-
                     String escapedDownloadDir = StringEscapeUtils.escapeJava(downloadDir + File.separator);
+                    
+                    //New functionality check the NetCDF file and get ncdump -h info.
+                    String Netcdfinfo = NetcdfFileManager.checkNetCDF(fileOut);
+                    String NetcdfInfoName = FilenameUtils.concat(downloadDir,
+                            FilenameUtils.removeExtension(userFile) + ".txt");
+                    //Write the ncdump information to file
+                    try (FileWriter wr = new FileWriter(NetcdfInfoName)){
+                    	wr.write(Netcdfinfo);
+                    	wr.flush();
+                    } catch (IOException e) {
+                        System.err.println("Caught IOException: "
+                                + e.getMessage());                    	
+                    }
+                    
                     return fileOut.replaceAll(escapedDownloadDir, "") + "\n"
-                            + jsonOut.replaceAll(escapedDownloadDir, "");
+                            + jsonOut.replaceAll(escapedDownloadDir, "") + "\n"
+                            + NetcdfInfoName.replaceAll(escapedDownloadDir, "");
                 }
                 // }
             } else {
