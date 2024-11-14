@@ -35,6 +35,12 @@ a[href$='.template'] {
     background: transparent url('../img/icon/rosetta-12x12.png') center left no-repeat;
 }
 
+a[href$='.txt'] {
+    padding-left: 18px;
+    line-height: 18px;
+    background: transparent url('../img/icon/ncml.png') center left no-repeat;
+}
+
 /* fake/disabled next button */
 #faux {
     background: #E6E6E6 url('../img/ui-bg_glass_75_e6e6e6_1x400.png') 50% 50% repeat-x;
@@ -167,6 +173,29 @@ ul li label img {
 
 #step6 ul {
     width: 95%;
+}
+
+/* Showing the label for The PDF input button instead of the input button itself. */
+#PDFinputButton {
+	display:none;
+}
+
+label[for="PDFinputButton"] {
+	border-width:2px 4px 4px 2px ;
+	border-style: groove;
+	border-color:  #AAA;
+	padding:3px;
+	border-radius:7px;
+	box-shadow:0.5em 0.5em 15px 3px grey;
+}
+
+label[for="PDFinputButton"]:hover {
+	background: #f6f6fe;
+}
+
+label[for="PDFinputButton"]:active {
+	box-shadow:0.2em 0.2em 10px 3px grey;
+	border-width: 4px 2px 2px 4px;
 }
 
 /* step 7 */

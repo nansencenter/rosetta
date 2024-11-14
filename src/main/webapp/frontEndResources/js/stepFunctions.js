@@ -557,8 +557,9 @@ function specifyGeneralMetadata(stepType, stepData) {
         customAttDiv.after("<button type='button' onclick='addCustomGeneralAttribute()'>"
                 + "Add custom attribute</button><p />"
                 + "<p>if you have a filled in version of this <a href='https://drive.google.com/file/d/1xeMNAjI1v-bjTQQEyAnnB-KNrboxEQzS/view?usp=drive_link'>PDF form</a>,"
-                + "you can use it to fill in the fields here:"
-                + "<input type='file' id='PDFinputButton' name='PDFInputFile' accept='.pdf' onchange='fillValuesFromPDF(this.files)'> </p>");
+                + "you can use it to fill in the fields here:</p>"
+                + "<label for='PDFinputButton'>Import PDF form</label>" 
+                + "<input type='file' id='PDFinputButton' name='PDFInputFile' accept='.pdf' onchange='fillValuesFromPDF(this.files)'> ");
         var stepElement = "#step" + stepData + " input[type='text']";
         var stepCheck = ".jw-step:eq(" + stepData + ")";
         $(stepElement).on("focusout", function () {
@@ -1197,14 +1198,17 @@ function convertAndDownload(stepType, stepData) {
                    //console.warn("here 1");
                    var templatePattern = /^\.template$/i;
                    var ncPattern = /^\.nc$/i;
+                   var dumpPattern = /^\.txt$/i;
                    //console.warn("here 2");
                    $(download).empty();
                    for (var i = 0; i < urls.length; i++) {
-                       var fileExt = urls[i].match(/\.[a-zA-Z]{2,4}$/);
+                       var fileExt = urls[i].match(/\.[a-zA-Z]{2,8}$/);
                        if (templatePattern.test(fileExt)) {
                            var linkName = "Rosetta transaction receipt"
                        } else if (ncPattern.test(fileExt)) {
                            var linkName = "netCDF Data File"
+                       } else if (dumpPattern.test(fileExt)) {
+                    	   var linkName = "netCDF Header information"
                        } else {
                            var linkName = urls[i];
                        }
@@ -1217,7 +1221,7 @@ function convertAndDownload(stepType, stepData) {
                    }
                },
                "text");
-        $(".jw-button-next").removeClass("hideMe")
+        //$(".jw-button-next").removeClass("hideMe")
         $(".jw-button-finish").addClass("hideMe");
         $("#faux").remove();
     }

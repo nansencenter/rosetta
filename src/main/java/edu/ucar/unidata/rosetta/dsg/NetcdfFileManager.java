@@ -767,10 +767,10 @@ public abstract class NetcdfFileManager {
     	}
     	try (NetcdfFile ncdump = NetcdfFile.open(ncFilePath)){
     		ncinfo = ncdump.toString();
-    		int index = ncinfo.indexOf("\n");
+    		int index = ncinfo.indexOf("{");
     		//String[] lncinfo = ncinfo.split("\n");
     		//ncinfo = lncinfo.
-    		ncinfo  = ncinfo.substring(index +1);
+    		ncinfo  = ncinfo.substring(index);
     		//ncinfo.replaceAll("/\n/g", "<br/>");
     	} catch (IOException e) {
     		e.printStackTrace();
