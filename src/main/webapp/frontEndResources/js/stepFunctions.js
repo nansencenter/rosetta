@@ -1204,7 +1204,7 @@ function convertAndDownload(stepType, stepData) {
                    for (var i = 0; i < urls.length; i++) {
                        var fileExt = urls[i].match(/\.[a-zA-Z]{2,8}$/);
                        if (templatePattern.test(fileExt)) {
-                           var linkName = "Rosetta transaction receipt"
+                           var linkName = "Rosetta transaction receipt (template file)"
                        } else if (ncPattern.test(fileExt)) {
                            var linkName = "netCDF Data File"
                        } else if (dumpPattern.test(fileExt)) {
