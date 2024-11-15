@@ -186,7 +186,7 @@ label[for="PDFinputButton"] {
 	border-color:  #AAA;
 	padding:3px;
 	border-radius:7px;
-	box-shadow:0.5em 0.5em 15px 3px grey;
+	box-shadow:0.2em 0.2em 10px 1px grey;
 }
 
 label[for="PDFinputButton"]:hover {
@@ -194,7 +194,7 @@ label[for="PDFinputButton"]:hover {
 }
 
 label[for="PDFinputButton"]:active {
-	box-shadow:0.2em 0.2em 10px 3px grey;
+	box-shadow:0.05em 0.05em 5px 1px grey;
 	border-width: 4px 2px 2px 4px;
 }
 
