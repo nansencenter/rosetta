@@ -1204,15 +1204,14 @@ function convertAndDownload(stepType, stepData) {
                    for (var i = 0; i < urls.length; i++) {
                        var fileExt = urls[i].match(/\.[a-zA-Z]{2,8}$/);
                        if (templatePattern.test(fileExt)) {
-                           var linkName = "Rosetta transaction receipt (template file)"
+                           var linkName = "Rosetta template file"
                        } else if (ncPattern.test(fileExt)) {
                            var linkName = "netCDF Data File"
                        } else if (dumpPattern.test(fileExt)) {
-                    	   var linkName = "netCDF Header information"
+                    	   var linkName = "netCDF Header information text file"
                        } else {
                            var linkName = urls[i];
                        }
-
                        var link = "<li><a href=\"" + "fileDownload/" + getFromSession("uniqueId")
                                   + "/" + urls[i] + "\" " + "download=\"" + urls[i] + "\" >"
                                   + linkName + "</a></li>";

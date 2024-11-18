@@ -25,6 +25,22 @@
         #about {
         	font-size : 50%
         }
+        button {
+        	padding: 1em;
+        	margin: 1em;
+        	width: 30em;
+        	border-radius: 1em;
+        	border-width: 0px;
+        	font-size: 1em;
+        	background-color:rgb(230,240,255);
+        	box-shadow: 5px 5px 10px 1px black;
+        }
+        button:hover {
+        	background-color:rgb(220,230,255);
+        }
+        button:active {
+        box-shadow: 0.5px 0.5px 10px 1px black;
+        }
     </style>
     <title>Rosetta</title>
 </head>
@@ -32,7 +48,7 @@
 <table>
     <tr>
         <td>
-            <a href="http://rosetta.unidata.ucar.edu"><img src="resources/img/logo/rosetta-150x150.png" alt="Rosetta"></a>
+            <a href="https://www.unidata.ucar.edu/software/rosetta/"><img src="resources/img/logo/rosetta-150x150.png" alt="Rosetta"></a>
             <br>
             <a href="http://nmdc.no"><img src="resources/img/logo/nmdc_logo.png" alt="NMDC"></a>
             <br>
@@ -43,7 +59,7 @@
         <td>
             
             <h1>Rosetta</h1>
-            <br />
+            
             <p>
                 <b><i>This specific version of Rosetta has been tailored for NMDC, NorDataNet and SIOS.</i></b>
             </p>
@@ -55,20 +71,15 @@
                 the file, the instruments used to collect the data, and other critical information
                 that otherwise may be lost in one of many dreaded README files.
             </p>
-            <p>
-                In addition, with the understanding that the observational community does appreciate
-                the ease of use of ASCII files, methods for transforming the netCDF back into a user
-                defined CSV or spreadsheet formats is planned to be incorporated into Rosetta.
-            </p>
+
             <p>
                 We hope that Rosetta will be of value to the science community users who have needs
                 for transforming the data they have collected or stored in non-standard formats.
             </p>
             <p>
-                Rosetta is currently under continued further development, and ready for beta
-                testing.
+                Rosetta is currently under continued further development.
             </p>
-            <br />
+            
             <h2>What would you like to do?</h2>
             
             <a href="create"><button type="button">Convert a file to the netCDF format and create a new template</button></a>
@@ -81,6 +92,7 @@
     	<td></td>
     	<td><a href="https://drive.google.com/file/d/1Ss7G2kHZipBWLn28CdZooxDiXLztRQlp/view">Rosetta User Manual</a></td>
     </tr>
+    <tr><td></td><td><a href='https://drive.google.com/file/d/1xeMNAjI1v-bjTQQEyAnnB-KNrboxEQzS/view?usp=drive_link'>PDF form</a> for General metadata import</td></tr>
     <tr><td colspan=2><hr></td></tr>
     <tr>
         <td id="about" colspan="2">
