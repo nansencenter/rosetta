@@ -203,6 +203,20 @@ label[for="PDFinputButton"]:active {
     width: 100%;
 }
 
+#step7 div {
+	padding-top:3em;
+	width: 90%;
+	clear:left;
+}
+
+#step7 pre  {
+    border-style: inset;
+    padding: 10px 5px;
+    overflow: scroll;
+    background-color: ghostwhite;
+    max-height:300vh;
+}
+
 /* dialog box section titles */
 #dialog h3 {
     min-width: 450px;

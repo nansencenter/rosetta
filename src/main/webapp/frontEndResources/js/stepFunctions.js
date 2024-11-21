@@ -679,7 +679,6 @@ function fillValuesFromPDF(PDFselectedFileList){
       fr.onerror = function() {
           console.log(fr.error);
       };
-    //});
 }
 
 async function readForm(formPdfBytes) {
@@ -1204,11 +1203,12 @@ function convertAndDownload(stepType, stepData) {
                    for (var i = 0; i < urls.length; i++) {
                        var fileExt = urls[i].match(/\.[a-zA-Z]{2,8}$/);
                        if (templatePattern.test(fileExt)) {
-                           var linkName = "Rosetta template file"
+                           var linkName = "Rosetta template file";
                        } else if (ncPattern.test(fileExt)) {
-                           var linkName = "netCDF Data File"
+                           var linkName = "netCDF Data File";
                        } else if (dumpPattern.test(fileExt)) {
-                    	   var linkName = "netCDF Header information text file"
+                    	   var linkName = "netCDF Header information text file";
+                    	   PrintHeaderFile("fileDownload/" + getFromSession("uniqueId") + "/" + urls[i]);
                        } else {
                            var linkName = urls[i];
                        }
@@ -1252,10 +1252,24 @@ function autoconvertAndDownload(stepType, stepData) {
                    $(download).append(link);
                },
                "text");
-        $(".jw-button-next").removeClass("hideMe")
+        //$(".jw-button-next").removeClass("hideMe");
         $(".jw-button-finish").addClass("hideMe");
         $("#faux").remove();
     }
+}
+
+// Function for Printing the content of the NetCDF header meatadata file in a Textbox (page 7)
+function PrintHeaderFile(textFile) {
+	fetch(textFile)
+		.then(response => response.text())
+		.then((data) => {
+			readHeaderfile(data);
+		})
+}
+
+function readHeaderfile(fileContent) {
+	$("div#step7").append("<div><h5>NetCDF file header information</h5>" +
+			"<pre id=\"ncheadercontent\">" + fileContent + "</pre></div>");
 }
 
 function publish(stepType, stepData) {
