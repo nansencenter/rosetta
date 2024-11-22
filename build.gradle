@@ -18,7 +18,7 @@ compileJava {
 }
 
 group = 'edu.ucar.unidata'
-version = '1.2.0-NERSC'
+version = '1.2.1-NERSC'
 
 description = """rosetta"""
 

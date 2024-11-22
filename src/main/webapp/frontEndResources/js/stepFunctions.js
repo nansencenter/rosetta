@@ -1268,7 +1268,8 @@ function PrintHeaderFile(textFile) {
 }
 
 function readHeaderfile(fileContent) {
-	$("div#step7").append("<div><h5>NetCDF file header information</h5>" +
+	$("#ncheaderinfowrapper").remove();
+	$("div#step7").append("<div id=\"ncheaderinfowrapper\"><h5>NetCDF file header information</h5>" +
 			"<pre id=\"ncheadercontent\">" + fileContent + "</pre></div>");
 }
 
